@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sertifikalar - EMRE ABAK</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="project-template.css">
+    <link rel="stylesheet" href="certificates.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="project-header">
+        <h1 class="gradient-text">Sertifikalar</h1>
+        <div class="home-btn-container">
+            <a href="../index.html" class="home-btn">
+                <i class="fas fa-home"></i>
+                <span>Ana Sayfa</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="certificates-content">
+        <!-- Sertifika 1 -->
+        <div class="certificate-item">
+            <div class="certificate-image">
+                <img src="../images/certificate1.png" alt="Sertifika 1">
+            </div>
+            <div class="certificate-info">
+                <h2>Sertifika Başlığı 1</h2>
+                <p>Sertifika açıklaması ve detayları buraya gelecek. Eğitimin içeriği, süresi ve kazanılan yetkinlikler hakkında kısa bilgi.</p>
+                <span class="certificate-date">Tarih: 2024</span>
+            </div>
+        </div>
+
+        <!-- Sertifika 2 -->
+        <div class="certificate-item reverse">
+            <div class="certificate-image">
+                <img src="../images/certificate2.png" alt="Sertifika 2">
+            </div>
+            <div class="certificate-info">
+                <h2>Sertifika Başlığı 2</h2>
+                <p>Sertifika açıklaması ve detayları buraya gelecek. Eğitimin içeriği, süresi ve kazanılan yetkinlikler hakkında kısa bilgi.</p>
+                <span class="certificate-date">Tarih: 2023</span>
+            </div>
+        </div>
+
+        <!-- Sertifika 3 -->
+        <div class="certificate-item">
+            <div class="certificate-image">
+                <img src="../images/certificate3.png" alt="Sertifika 3">
+            </div>
+            <div class="certificate-info">
+                <h2>Sertifika Başlığı 3</h2>
+                <p>Sertifika açıklaması ve detayları buraya gelecek. Eğitimin içeriği, süresi ve kazanılan yetkinlikler hakkında kısa bilgi.</p>
+                <span class="certificate-date">Tarih: 2023</span>
+            </div>
+        </div>
+
+        <!-- Sertifika 4 -->
+        <div class="certificate-item reverse">
+            <div class="certificate-image">
+                <img src="../images/certificate4.png" alt="Sertifika 4">
+            </div>
+            <div class="certificate-info">
+                <h2>Sertifika Başlığı 4</h2>
+                <p>Sertifika açıklaması ve detayları buraya gelecek. Eğitimin içeriği, süresi ve kazanılan yetkinlikler hakkında kısa bilgi.</p>
+                <span class="certificate-date">Tarih: 2022</span>
+            </div>
+        </div>
+
+        <!-- Sertifika 5 -->
+        <div class="certificate-item">
+            <div class="certificate-image">
+                <img src="../images/certificate5.png" alt="Sertifika 5">
+            </div>
+            <div class="certificate-info">
+                <h2>Sertifika Başlığı 5</h2>
+                <p>Sertifika açıklaması ve detayları buraya gelecek. Eğitimin içeriği, süresi ve kazanılan yetkinlikler hakkında kısa bilgi.</p>
+                <span class="certificate-date">Tarih: 2022</span>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const certificates = document.querySelectorAll('.certificate-item');
+            certificates.forEach((cert, index) => {
+                setTimeout(() => {
+                    cert.classList.add('fade-in');
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html> 

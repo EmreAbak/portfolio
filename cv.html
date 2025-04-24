@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - EMRE ABAK</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1a1a3c;
+            --secondary-color: #0a192f;
+            --text-color: #333;
+            --light-text: #666;
+            --background-color: #f5f5f5;
+            --card-background: #ffffff;
+            --border-radius: 10px;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .header-content {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            position: relative;
+        }
+
+        .nav-buttons {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-button {
+            padding: 0.5rem 1rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .section {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .experience-card {
+            background: var(--card-background);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .job-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .company-info {
+            color: var(--light-text);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .date-location {
+            color: var(--light-text);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .responsibilities {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .responsibilities li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .responsibilities li::before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .education-card {
+            background: var(--card-background);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .language-info {
+            background: var(--card-background);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            margin-top: 1rem;
+        }
+
+        .home-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 1rem;
+            }
+
+            .experience-card {
+                padding: 1.5rem;
+            }
+
+            .job-title {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Timeline styles */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: var(--primary-color);
+            border: 4px solid var(--card-background);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-date {
+            display: inline-block;
+            padding: 5px 15px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .left::after {
+            right: -16px;
+        }
+
+        .right::after {
+            left: -16px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background: var(--card-background);
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .timeline-title {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-company {
+            color: var(--light-text);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 15px;
+            }
+
+            .left::after {
+                left: 15px;
+            }
+
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>EMRE ABAK</h1>
+            <p>Süreç Yöneticisi | İş Analizi ve Süreç Geliştirme Uzmanı</p>
+            <a href="index.html" class="home-button">
+                <i class="fas fa-home"></i> Ana Sayfa
+            </a>
+        </div>
+    </header>
+
+    <nav class="nav-buttons">
+        <a href="#experience" class="nav-button">İş Deneyimi</a>
+        <a href="#education" class="nav-button">Eğitim</a>
+        <a href="#languages" class="nav-button">Dil Becerileri</a>
+    </nav>
+
+    <main>
+        <section id="experience" class="section">
+            <h2 class="section-title">İş Deneyimi</h2>
+            
+            <div class="timeline">
+                <!-- Current Position (Combined) -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Haziran 2023 - Devam Ediyor</span>
+                        <h3 class="timeline-title">Süreç Yöneticisi</h3>
+                        <div class="timeline-company">Kadifeteks Mensucat Sanayi A.Ş.</div>
+                        <div class="company-info">Tekstil Sektörü, Yönetim Departmanı</div>
+                        <p style="color: var(--primary-color); margin: 1rem 0;">İş Analizi ve Süreç / Proses Geliştirme Uzmanı olarak başlayıp, Nisan 2025'te Süreç Yöneticisi pozisyonuna terfi</p>
+                        <ul class="responsibilities">
+                            <li>Departman Analizleri ve İş Yükü Belirleme: Departmanların iş yükü analiz edilir, norm kadro çalışmaları yapılır ve görevlerin uygunluğu değerlendirilir. Çalışanların iş uyumluluğu denetlenir.</li>
+                            <li>Departmanlara Özel Dashboard Tasarımı: Her departmana özel dashboardlar oluşturularak üretim, satış, bölgesel renk tercihleri ve aksiyon gerektiren veriler sunulur.</li>
+                            <li>Maliyet Analizlerinin Güncellenmesi ve Doğruluğunun Sağlanması: Maliyet analizleri düzenli olarak güncellenir ve doğruluk kontrolü yapılır. Eksiksiz hesaplama sağlanarak güvenilirlik artırılır.</li>
+                            <li>Üretim Departmanları için Makine Verimliliklerinin Ölçülmesi: Makine verimlilikleri izlenerek raporlanır. Verimliliği artıracak iyileştirme önerileri geliştirilir.</li>
+                            <li>Takip Edilemeyen veya Eksik Yapılan İşlerin Analizi: Üretimde eksik veya takip edilmeyen işler tespit edilir. Hata nedenleri araştırılarak çözüm önerileri geliştirilir.</li>
+                            <li>Üretim Kalitesini Etkileyen Faktörlerin Belirlenmesi ve Düzeltici Faaliyetler: Üretim kalitesini etkileyen faktörler analiz edilir, düzeltici ve önleyici faaliyetler uygulanır.</li>
+                            <li>Yapay Zeka Tabanlı İş Geliştirme Çalışmaları: İş süreçlerinde hata ve iş yükünü azaltmak için yapay zeka destekli çözümler geliştirilir.</li>
+                            <li>ERP Sistem İçi Geliştirmeler: Departmanların ve çalışanların ihtiyaçlarına uygun sistem geliştirmeleri yapılır.</li>
+                            <li>Kaizen ve 5S Metodolojilerinin Entegrasyonu: Sürekli iyileştirme ve düzen sağlamak için Kaizen ve 5S metodolojileri entegre edilir.</li>
+                            <li>İş Etüdü Çalışmaları: Zaman etüdü ve kapasite analizleri yapılarak çalışma düzeni verimli hale getirilir.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Previous Position 2 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Ekim 2022 - Haziran 2023</span>
+                        <h3 class="timeline-title">Planlama Uzmanı</h3>
+                        <div class="timeline-company">Saide Tekstil San. Tic. A.Ş.</div>
+                        <div class="company-info">Tekstil Sektörü, Planlama Departmanı</div>
+                        <ul class="responsibilities">
+                            <li>Sipariş onay süreçlerinin takibi</li>
+                            <li>Üretim süreçlerinin planlanması</li>
+                            <li>Kumaş planlamasının yapılması</li>
+                            <li>Kalite kontrol süreçlerinin yürütülmesi</li>
+                            <li>Lojistik ve tedarik süreçlerinin yönetimi</li>
+                            <li>Üretim pastallarının hesaplanması</li>
+                            <li>Kesim süreçlerinin takibi ve kontrolü</li>
+                            <li>Baskı süreçlerinin planlanması</li>
+                            <li>Atölye dikim ve aksesuar planlaması</li>
+                            <li>Üretim süreçlerinin takibi</li>
+                            <li>Üretim kapanış (UKP) raporlarının hazırlanması</li>
+                            <li>Düzenli raporlama</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Previous Position 3 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Nisan 2020 - Ağustos 2022</span>
+                        <h3 class="timeline-title">İş Analizi ve Süreç Geliştirme Uzmanı</h3>
+                        <div class="timeline-company">Trikotek Tekstil A.Ş.</div>
+                        <div class="company-info">Tekstil Sektörü, Planlama Departmanı</div>
+                        <ul class="responsibilities">
+                            <li>İş Süreçleri Analizi ve İyileştirme</li>
+                            <li>Tedarik Zinciri Optimizasyonu</li>
+                            <li>Veri Yönetimi ve Raporlama</li>
+                            <li>Dijital Dönüşüm Projeleri</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Previous Position 4 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Ağustos 2019 - Mart 2020</span>
+                        <h3 class="timeline-title">Süreç Geliştirme Uzmanı</h3>
+                        <div class="timeline-company">Teknikal Profil Alüminyum A.Ş.</div>
+                        <div class="company-info">Yapı Sektörü, Mühendislik Departmanı</div>
+                        <ul class="responsibilities">
+                            <li>İş Akışları ve Etütler</li>
+                            <li>Tesis Planlama</li>
+                            <li>Verimlilik Analizleri</li>
+                            <li>İhracat Planlama</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Internship 1 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Şubat 2019 - Haziran 2019</span>
+                        <h3 class="timeline-title">Stajyer Mühendis</h3>
+                        <div class="timeline-company">Hale Makina San. Tic. Ltd. Şti.</div>
+                        <div class="company-info">Yapı Sektörü, Üretim / İmalat Departmanı</div>
+                    </div>
+                </div>
+
+                <!-- Internship 2 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Haziran 2018 - Ağustos 2018</span>
+                        <h3 class="timeline-title">Stajyer Mühendis</h3>
+                        <div class="timeline-company">Özbilim Tekstil Makinaları San.Tic.Ltd.Şti</div>
+                        <div class="company-info">Tekstil Sektörü, AR-GE Departmanı</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="section">
+            <h2 class="section-title">Eğitim</h2>
+            <div class="education-card">
+                <h3 class="job-title">İstanbul Gelişim Üniversitesi</h3>
+                <div class="company-info">Mühendislik-Mimarlık Fakültesi, Endüstri Mühendisliği</div>
+                <div class="date-location">Eylül 2015 - Haziran 2019</div>
+                <p>Örgün Öğretim | Lisans</p>
+            </div>
+
+            <div class="education-card">
+                <h3 class="job-title">Ataköy Cumhuriyet Anadolu Lisesi</h3>
+                <div class="date-location">Haziran 2014</div>
+                <p>Anadolu Lisesi</p>
+            </div>
+        </section>
+
+        <section id="languages" class="section">
+            <h2 class="section-title">Dil Becerileri</h2>
+            <div class="language-info">
+                <h3 class="job-title">İngilizce</h3>
+                <p>Seviye: İleri</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

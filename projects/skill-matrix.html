@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çalışan Özel Beceri Matris Formları - EMRE ABAK</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="project.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .project-header {
+            text-align: center;
+            padding: 5rem 2rem 3rem;
+            background: linear-gradient(135deg, #1a1a3c 0%, #0a192f 100%);
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-section:nth-child(2) { animation-delay: 0.2s; }
+        .content-section:nth-child(3) { animation-delay: 0.4s; }
+        .content-section:nth-child(4) { animation-delay: 0.6s; }
+        .content-section:nth-child(5) { animation-delay: 0.8s; }
+
+        .section-title {
+            color: #1a1a3c;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #1a1a3c;
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .bullet-list li::before {
+            content: "•";
+            color: #1a1a3c;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .grid-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .grid-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .grid-item h3 {
+            color: #1a1a3c;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .grid-item p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .note {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-left: 4px solid #1a1a3c;
+            margin-top: 2rem;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            margin-top: 1rem;
+        }
+
+        .home-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 1rem;
+            }
+
+            .grid-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 60, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+        }
+
+        /* Adjust main content to account for fixed nav */
+        body {
+            padding-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0.5rem;
+            }
+
+            .nav-links {
+                gap: 0.5rem;
+            }
+
+            .nav-link {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            body {
+                padding-top: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-container">
+        <div class="nav-links">
+            <a href="../index.html" class="nav-link">Ana Sayfa</a>
+            <a href="time-study.html" class="nav-link">Zaman Etüdü Çalışmaları</a>
+            <a href="skill-matrix.html" class="nav-link active">Çalışan Özel Beceri Matris Formları</a>
+            <a href="visual-management.html" class="nav-link">Görsel Yönetim Çalışmaları</a>
+            <a href="lean-production.html" class="nav-link">Yalın Üretim Çalışmaları</a>
+            <a href="demand-forecast.html" class="nav-link">Talep Tahmin Analizleri</a>
+            <a href="ai-software.html" class="nav-link">Yapay Zeka ve Yazılım Çalışmaları</a>
+            <a href="data-analysis.html" class="nav-link">Veri Analizi Çalışmaları</a>
+            <a href="dashboard.html" class="nav-link">Dashboard Çalışmaları</a>
+            <a href="work-analysis.html" class="nav-link">İş Analizi Çalışmaları</a>
+        </div>
+    </nav>
+
+    <header class="project-header">
+        <h1>Çalışan Özel Beceri Matris Formları</h1>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h2 class="section-title">Genel Bakış</h2>
+            <p>Çalışan Özel Beceri Matris Formları, işletmelerde çalışanların sahip oldukları becerileri, yetkinlikleri ve gelişim alanlarını sistematik bir şekilde takip etmek ve değerlendirmek için kullanılan bir araçtır. Bu formlar sayesinde, her çalışanın güçlü yönleri ve gelişime açık alanları belirlenir, eğitim ihtiyaçları tespit edilir ve kariyer gelişim planları oluşturulur.</p>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Uygulama Amacı</h2>
+            <ul class="bullet-list">
+                <li>Çalışanların beceri ve yetkinliklerinin sistematik olarak değerlendirilmesi</li>
+                <li>Eğitim ve gelişim ihtiyaçlarının belirlenmesi</li>
+                <li>İş rotasyonu ve görev dağılımının optimize edilmesi</li>
+                <li>Kariyer gelişim planlarının oluşturulması</li>
+                <li>Organizasyonel yetkinlik haritasının çıkarılması</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Uygulama Süreci</h2>
+            <ul class="bullet-list">
+                <li>Pozisyonlar için gerekli beceri ve yetkinliklerin belirlenmesi</li>
+                <li>Değerlendirme kriterlerinin ve ölçüm sisteminin oluşturulması</li>
+                <li>Çalışanların mevcut becerilerinin değerlendirilmesi</li>
+                <li>Gelişim alanlarının tespit edilmesi ve eğitim planlarının hazırlanması</li>
+                <li>Düzenli takip ve güncelleme süreçlerinin yürütülmesi</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Sonuç ve Katkılar</h2>
+            <ul class="bullet-list">
+                <li>Çalışan gelişimi sistematik olarak takip edilir</li>
+                <li>Eğitim programları daha etkili planlanır</li>
+                <li>İş gücü verimliliği artar</li>
+                <li>Kariyer gelişim süreçleri daha şeffaf hale gelir</li>
+                <li>Organizasyonel yetkinlik seviyesi yükselir</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Uygulanabilir Sektörler</h2>
+            <div class="grid-section">
+                <div class="grid-item">
+                    <h3>Üretim ve İmalat</h3>
+                    <p>Operatör ve teknisyen becerilerinin takibi.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Tekstil ve Konfeksiyon</h3>
+                    <p>Üretim personeli yetkinlik değerlendirmesi.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Teknoloji ve Yazılım</h3>
+                    <p>Teknik becerilerin ve sertifikasyonların takibi.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Hizmet Sektörü</h3>
+                    <p>Müşteri hizmetleri ve satış ekibi değerlendirmesi.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Sağlık ve Medikal</h3>
+                    <p>Sağlık personeli yetkinlik takibi.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Eğitim Kurumları</h3>
+                    <p>Eğitmen ve öğretmen beceri değerlendirmesi.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Faydalanan Departmanlar</h2>
+            <div class="grid-section">
+                <div class="grid-item">
+                    <h3>İnsan Kaynakları</h3>
+                    <p>Yetenek yönetimi ve kariyer planlaması.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Eğitim ve Gelişim</h3>
+                    <p>Eğitim ihtiyaç analizi ve program planlaması.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Üretim ve Operasyon</h3>
+                    <p>İş gücü planlaması ve rotasyon programları.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Kalite Yönetimi</h3>
+                    <p>Kalite standartları ve yetkinlik değerlendirmesi.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Yönetim ve Strateji</h3>
+                    <p>Organizasyonel gelişim ve yetenek havuzu yönetimi.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

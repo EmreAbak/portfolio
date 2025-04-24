@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMRE ABAK - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+</head>
+<body>
+    <section class="hero">
+        <div class="animated-bg"></div>
+        <div class="hero-content">
+            <h1 class="gradient-text">EMRE ABAK</h1>
+            <nav class="hero-buttons">
+                <a href="https://www.linkedin.com/in/emre-abak-60b5b6179/" class="btn" target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="cv.html" class="btn">
+                    <i class="fas fa-file-alt"></i> CV
+                </a>
+                <a href="#contact" class="btn">
+                    <i class="fas fa-envelope"></i> İletişim
+                </a>
+                <a href="certificates.html" class="btn">
+                    <i class="fas fa-certificate"></i> Sertifikalar
+                </a>
+            </nav>
+            
+            <div class="profile-section">
+                <img src="images/profil.png" alt="Emre Abak" class="profile-image">
+                <div class="bio">
+                    <p>Merhabalar Endüstri Mühendisliği alanında 5-6 yıllık deneyimim ile süreç optimizasyonu, iş geliştirme, veri analizinin yanı sıra danışmanlık hizmetleri sunuyorum. Çözüm odaklı ve girişken yönelim tarzım, liderlik ve güçlü iletişim becerilerimle ekip verimliliğini artırıyor, sürekli gelişim hedefiyle veri destekli karar mekanizmaları kurarak operasyonel mükemmellik sağlıyorum. Bu birikimim ile sizlere nasıl katkı sağlayabileceğimi daha detaylı olarak paylaşmaktan memnuniyet duyarım.</p>
+                </div>
+            </div>
+
+            <div class="skills-section">
+                <h2 class="gradient-text">Yetkinliklerim</h2>
+                <a href="#projects" class="scroll-button">
+                    <i class="fas fa-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="project-grid">
+            <div class="project-card" onclick="window.location.href='projects/time-study.html'">
+                <div class="project-image">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>Zaman Etüdü Çalışmaları</h3>
+            </div>
+
+            <div class="project-card" onclick="window.location.href='projects/skill-matrix.html'">
+                <div class="project-image">
+                    <i class="fas fa-users-cog"></i>
+                </div>
+                <h3>Çalışan Özel Beceri Matris Formları</h3>
+            </div>
+
+            <div class="project-card" onclick="window.location.href='projects/visual-management.html'">
+                <div class="project-image">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h3>Görsel Yönetim Çalışmaları</h3>
+            </div>
+
+            <div class="project-card" onclick="window.location.href='projects/lean-production.html'">
+                <div class="project-image">
+                    <i class="fas fa-industry"></i>
+                </div>
+                <h3>Yalın Üretim Çalışmaları</h3>
+            </div>
+
+            <div class="project-card" onclick="window.location.href='projects/demand-forecast.html'">
+                <div class="project-image">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Talep Tahmin Analizleri</h3>
+            </div>
+
+            <div class="project-card" onclick="window.location.href='projects/ai-software.html'">
+                <div class="project-image">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>Yapay Zeka ve Yazılım Çalışmaları</h3>
+            </div>
+
+            <div class="project-card" onclick="window.location.href='projects/data-analysis.html'">
+                <div class="project-image">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>Veri Analizi Çalışmaları</h3>
+            </div>
+
+            <div class="project-card" onclick="window.location.href='projects/dashboard.html'">
+                <div class="project-image">
+                    <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <h3>Dashboard Çalışmaları</h3>
+            </div>
+
+            <div class="project-card" onclick="window.location.href='projects/work-analysis.html'">
+                <div class="project-image">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <h3>İş Analizi Çalışmaları</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="gradient-text">İletişim</h2>
+        <div class="contact-content">
+            <a href="tel:05396836231" class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>0539 683 62 31</span>
+            </a>
+            <a href="mailto:emreabak1@gmail.com" class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>emreabak1@gmail.com</span>
+            </a>
+            <a href="https://www.linkedin.com/in/emre-abak-60b5b6179/" class="contact-item" target="_blank">
+                <i class="fab fa-linkedin"></i>
+                <span>LinkedIn</span>
+            </a>
+        </div>
+    </section>
+
+    <script>
+        // Mouse move animation for hero background
+        document.addEventListener('mousemove', function(e) {
+            requestAnimationFrame(function() {
+                const bg = document.querySelector('.animated-bg');
+                const xPercent = (e.clientX / window.innerWidth - 0.5) * 2;
+                const yPercent = (e.clientY / window.innerHeight - 0.5) * 2;
+                
+                bg.style.transform = `translate(${xPercent * 5}px, ${yPercent * 5}px)`;
+                bg.style.background = `radial-gradient(circle at ${e.clientX}px ${e.clientY}px, 
+                    rgba(255,255,255,0.03) 0%, 
+                    rgba(255,255,255,0.01) 10%, 
+                    transparent 20%)`;
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

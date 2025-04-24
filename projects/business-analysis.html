@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İş Analizi Çalışmaları - EMRE ABAK</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../projects/project.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 60, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+        }
+
+        /* Adjust main content to account for fixed nav */
+        body {
+            padding-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0.5rem;
+            }
+
+            .nav-links {
+                gap: 0.5rem;
+            }
+
+            .nav-link {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            body {
+                padding-top: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-container">
+        <div class="nav-links">
+            <a href="../index.html" class="nav-link">Ana Sayfa</a>
+            <a href="ai-software.html" class="nav-link">Yapay Zeka ve Yazılım</a>
+            <a href="data-analysis.html" class="nav-link">Veri Analizi</a>
+            <a href="time-study.html" class="nav-link">Zaman Etüdü</a>
+            <a href="work-analysis.html" class="nav-link">İş Analizi</a>
+            <a href="demand-forecast.html" class="nav-link">Talep Tahmini</a>
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="business-analysis.html" class="nav-link active">İş Geliştirme</a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="header-content">
+            <h1>İş Analizi Çalışmaları</h1>
+            <a href="../index.html" class="home-button">
+                <i class="fas fa-home"></i> Ana Sayfa
+            </a>
+        </div>
+    </header>
+
+    <main class="project-content">
+        <section class="project-section">
+            <h2>Genel Bakış</h2>
+            <p>İş Analizi Çalışmaları, işletmelerin süreçlerini, iş akışlarını ve organizasyonel yapılarını detaylı olarak inceleyerek, verimliliği artırmak ve maliyetleri optimize etmek için çözümler sunar.</p>
+        </section>
+
+        <section class="project-section">
+            <h2>Uygulama Amacı</h2>
+            <ul>
+                <li>İş süreçlerinin optimizasyonu</li>
+                <li>Organizasyonel verimliliğin artırılması</li>
+                <li>İş akışlarının standardizasyonu</li>
+                <li>Kaynak kullanımının iyileştirilmesi</li>
+                <li>Süreç darboğazlarının tespiti ve çözümü</li>
+            </ul>
+        </section>
+
+        <section class="project-section">
+            <h2>Uygulama Süreci</h2>
+            <ul>
+                <li>Mevcut durum analizi</li>
+                <li>İş süreçlerinin haritalandırılması</li>
+                <li>Darboğaz ve fırsat alanlarının tespiti</li>
+                <li>İyileştirme önerilerinin geliştirilmesi</li>
+                <li>Uygulama planının hazırlanması</li>
+                <li>Sonuçların takibi ve raporlama</li>
+            </ul>
+        </section>
+
+        <section class="project-section">
+            <h2>Sonuçlar ve Katkılar</h2>
+            <ul>
+                <li>Süreç verimliliğinde artış</li>
+                <li>Operasyonel maliyetlerde azalma</li>
+                <li>Standardize edilmiş iş süreçleri</li>
+                <li>İyileştirilmiş kaynak kullanımı</li>
+                <li>Artan çalışan verimliliği</li>
+            </ul>
+        </section>
+
+        <section class="project-section">
+            <h2>Uygulanabilir Sektörler</h2>
+            <div class="grid-section">
+                <div class="grid-item">
+                    <h3>Üretim</h3>
+                    <p>Üretim süreçleri ve iş akışı optimizasyonu</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Hizmet</h3>
+                    <p>Hizmet süreçleri ve müşteri deneyimi analizi</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Lojistik</h3>
+                    <p>Tedarik zinciri ve depo operasyonları analizi</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Bankacılık</h3>
+                    <p>Finansal süreçler ve operasyon analizi</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Perakende</h3>
+                    <p>Mağaza operasyonları ve satış süreçleri analizi</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Sağlık</h3>
+                    <p>Hastane süreçleri ve hasta akışı analizi</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>Faydalanan Departmanlar</h2>
+            <div class="grid-section">
+                <div class="grid-item">
+                    <h3>Operasyon</h3>
+                    <p>Süreç optimizasyonu ve verimlilik artışı</p>
+                </div>
+                <div class="grid-item">
+                    <h3>İnsan Kaynakları</h3>
+                    <p>İş tanımları ve organizasyonel yapılandırma</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Kalite</h3>
+                    <p>Süreç standardizasyonu ve kalite kontrol</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Finans</h3>
+                    <p>Maliyet optimizasyonu ve bütçe planlama</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Üst Yönetim</h3>
+                    <p>Stratejik planlama ve organizasyonel gelişim</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="note">
+            <p>Not: Yapılan çalışmalardaki veriler gizlilik nedeniyle paylaşılamamaktadır. Metodoloji ve sonuçlar hakkında daha detaylı bilgi için iletişime geçebilirsiniz.</p>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.project-section');
+            sections.forEach(section => section.classList.add('fade-in'));
+        });
+    </script>
+</body>
+</html> 

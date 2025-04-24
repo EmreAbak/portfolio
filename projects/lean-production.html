@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yalın Üretim Çalışmaları - EMRE ABAK</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="project.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .project-header {
+            text-align: center;
+            padding: 5rem 2rem 3rem;
+            background: linear-gradient(135deg, #1a1a3c 0%, #0a192f 100%);
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-section:nth-child(2) { animation-delay: 0.2s; }
+        .content-section:nth-child(3) { animation-delay: 0.4s; }
+        .content-section:nth-child(4) { animation-delay: 0.6s; }
+        .content-section:nth-child(5) { animation-delay: 0.8s; }
+
+        .section-title {
+            color: #1a1a3c;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #1a1a3c;
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .bullet-list li::before {
+            content: "•";
+            color: #1a1a3c;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .grid-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .grid-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .grid-item h3 {
+            color: #1a1a3c;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .grid-item p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .note {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-left: 4px solid #1a1a3c;
+            margin-top: 2rem;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            margin-top: 1rem;
+        }
+
+        .home-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 1rem;
+            }
+
+            .grid-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 60, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+        }
+
+        /* Adjust main content to account for fixed nav */
+        body {
+            padding-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0.5rem;
+            }
+
+            .nav-links {
+                gap: 0.5rem;
+            }
+
+            .nav-link {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            body {
+                padding-top: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-container">
+        <div class="nav-links">
+            <a href="../index.html" class="nav-link">Ana Sayfa</a>
+            <a href="time-study.html" class="nav-link">Zaman Etüdü Çalışmaları</a>
+            <a href="skill-matrix.html" class="nav-link">Çalışan Özel Beceri Matris Formları</a>
+            <a href="visual-management.html" class="nav-link">Görsel Yönetim Çalışmaları</a>
+            <a href="lean-production.html" class="nav-link active">Yalın Üretim Çalışmaları</a>
+            <a href="demand-forecast.html" class="nav-link">Talep Tahmin Analizleri</a>
+            <a href="ai-software.html" class="nav-link">Yapay Zeka ve Yazılım Çalışmaları</a>
+            <a href="data-analysis.html" class="nav-link">Veri Analizi Çalışmaları</a>
+            <a href="dashboard.html" class="nav-link">Dashboard Çalışmaları</a>
+            <a href="work-analysis.html" class="nav-link">İş Analizi Çalışmaları</a>
+        </div>
+    </nav>
+
+    <header class="project-header">
+        <h1>Yalın Üretim Çalışmaları</h1>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h2 class="section-title">Genel Bakış</h2>
+            <p>Yalın Üretim Çalışmaları, israfı minimize ederek ve değer yaratan faaliyetlere odaklanarak üretim süreçlerinin optimize edilmesini amaçlayan bir yönetim yaklaşımıdır. Bu yaklaşım, sürekli iyileştirme kültürünü benimser ve müşteri değerini artırmayı hedefler. Yalın üretim teknikleri, üretim süreçlerindeki verimsizlikleri ortadan kaldırarak, kaliteyi artırır ve maliyetleri düşürür.</p>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Uygulama Amacı</h2>
+            <ul class="bullet-list">
+                <li>Üretim süreçlerindeki israfın minimize edilmesi</li>
+                <li>Süreç verimliliğinin ve kalitenin artırılması</li>
+                <li>Üretim maliyetlerinin düşürülmesi</li>
+                <li>Müşteri memnuniyetinin artırılması</li>
+                <li>Sürekli iyileştirme kültürünün yerleştirilmesi</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Uygulama Süreci</h2>
+            <ul class="bullet-list">
+                <li>Mevcut durum analizi ve değer akış haritalama</li>
+                <li>İsraf kaynaklarının tespit edilmesi</li>
+                <li>5S ve standart iş uygulamalarının geliştirilmesi</li>
+                <li>Kaizen ve sürekli iyileştirme çalışmaları</li>
+                <li>Sonuçların izlenmesi ve sürdürülebilirliğin sağlanması</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Sonuç ve Katkılar</h2>
+            <ul class="bullet-list">
+                <li>Üretim verimliliği ve kalitesi artar</li>
+                <li>Maliyetler düşer ve karlılık yükselir</li>
+                <li>Teslimat süreleri kısalır</li>
+                <li>Çalışan katılımı ve motivasyonu artar</li>
+                <li>Müşteri memnuniyeti yükselir</li>
+            </ul>
+            <div class="note">
+                <p>Not: Proje detayları gizlilik ilkeleri gereği paylaşılmamaktadır; ancak kullanılan yöntemler ve uygulama adımları hakkında bilgi sunulabilir.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Uygulanabilir Sektörler</h2>
+            <div class="grid-section">
+                <div class="grid-item">
+                    <h3>Otomotiv</h3>
+                    <p>Üretim hatları ve tedarik zinciri optimizasyonu.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Tekstil ve Konfeksiyon</h3>
+                    <p>Üretim süreçleri ve stok yönetimi.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Elektronik</h3>
+                    <p>Montaj hatları ve kalite kontrol süreçleri.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Gıda Üretimi</h3>
+                    <p>Üretim süreçleri ve hijyen standartları.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Makine İmalat</h3>
+                    <p>Üretim ve montaj süreçleri.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Sağlık Hizmetleri</h3>
+                    <p>Operasyonel süreçler ve hasta bakımı.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Faydalanan Departmanlar</h2>
+            <div class="grid-section">
+                <div class="grid-item">
+                    <h3>Üretim</h3>
+                    <p>Süreç optimizasyonu ve verimlilik artışı.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Kalite</h3>
+                    <p>Kalite standartları ve hata önleme.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Planlama</h3>
+                    <p>Üretim planlaması ve stok yönetimi.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Bakım</h3>
+                    <p>Önleyici bakım ve ekipman verimliliği.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Lojistik</h3>
+                    <p>Malzeme akışı ve depo yönetimi.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>İnsan Kaynakları</h3>
+                    <p>Eğitim ve yetkinlik geliştirme.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html> 

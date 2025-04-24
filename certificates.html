@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sertifikalar - EMRE ABAK</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .certificate-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .certificate-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .certificate-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: all 0.3s ease;
+        }
+
+        .certificate-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .certificate-content {
+            padding: 1.5rem;
+        }
+
+        .certificate-content h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .certificate-content p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .header-content {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #1a1a3c 0%, #0a192f 100%);
+            color: white;
+        }
+
+        .header-content h1 {
+            margin-bottom: 1rem;
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .home-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            overflow: auto;
+            cursor: zoom-out;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90vh;
+            margin-top: 2%;
+        }
+
+        .modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* Zoom effect on hover */
+        .certificate-image {
+            cursor: zoom-in;
+        }
+
+        .certificate-image:hover::after {
+            content: "Büyütmek için tıklayın";
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Sertifikalar</h1>
+            <a href="index.html" class="home-button">
+                <i class="fas fa-home"></i> Ana Sayfa
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="certificates-grid">
+            <div class="certificate-card">
+                <div class="certificate-image">
+                    <img src="images/sertifica1.png" alt="IBM Data Analyst Sertifikası">
+                </div>
+                <div class="certificate-content">
+                    <h3>IBM Data Analyst</h3>
+                    <p>Bu içerik, veri analistlerinin günlük işlerinde kullandığı en güncel becerileri ve araçları kapsar. Excel ve BI araçlarıyla verileri görselleştirmek, IBM Cognos Analytics ve Tableau gibi araçlarla raporlar oluşturmak, Python ile veri analizi yapmak, Pandas ve Numpy kütüphanelerini kullanmak gibi konuları içerir. Ayrıca API'ler ve Web Servisleri ile veri entegrasyonu sağlamak, pratik projeler ve uygulamalarla deneyim kazanmak da bu sürecin bir parçasıdır.</p>
+                </div>
+            </div>
+
+            <div class="certificate-card">
+                <div class="certificate-image">
+                    <img src="images/sertifica2.png" alt="Google Business Intelligence Sertifikası">
+                </div>
+                <div class="certificate-content">
+                    <h3>Google Business Intelligence</h3>
+                    <p>Bu içerik, iş zekası (BI) profesyonellerinin organizasyonlardaki rollerini ele alır. Veri modelleme, veri çekme, dönüştürme ve yükleme (ETL) süreçlerini uygulayarak organizasyonel hedeflere ulaşmayı sağlar. Ayrıca, iş sorularına cevap veren veri görselleştirmeleri tasarlamak ve veriyi etkili bir şekilde ileten paneller oluşturmak da önemli bir yer tutar. Bu süreçler, paydaşlara veri içgörülerini açıkça sunmaya yardımcı olur.</p>
+                </div>
+            </div>
+
+            <div class="certificate-card">
+                <div class="certificate-image">
+                    <img src="images/sertifica3.png" alt="Generative AI for Data Scientists Sertifikası">
+                </div>
+                <div class="certificate-content">
+                    <h3>Generative AI for Data Scientists</h3>
+                    <p>Gerçek dünyadaki generatif yapay zeka kullanılması, metin, kod, görsel, ses ve video için popüler generatif yapay zeka modelleri ve araçlarının öğrenilmesi, generatif yapay zeka prompt mühendisliği kavramlarının, örneklerinin ve yaygın araçlarının anlaşılması, etkili ve güçlü promptlar oluşturma tekniklerinin uygulanması, veri bilimi kullanım senaryoları için uygun generatif yapay zeka araçlarının tanınması ve veri setlerini oluşturmak, zenginleştirmek ve makine öğrenimi modellerini geliştirmek için bu araçların kullanılması sağlanacaktır.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for enlarged image -->
+    <div class="modal" id="imageModal">
+        <img class="modal-content" id="enlargedImage">
+    </div>
+
+    <script>
+        // Get modal elements
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('enlargedImage');
+
+        // Add click event to all certificate images
+        document.querySelectorAll('.certificate-image img').forEach(img => {
+            img.addEventListener('click', function() {
+                modal.classList.add('active');
+                modalImg.src = this.src;
+            });
+        });
+
+        // Close modal when clicking outside the image
+        modal.addEventListener('click', function() {
+            modal.classList.remove('active');
+        });
+    </script>
+</body>
+</html> 
