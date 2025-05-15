@@ -67,3 +67,13 @@ document.addEventListener('DOMContentLoaded', () => {
         sectionObserver.observe(section);
     });
 }); 
+
+function showModal(element) {
+    const detay = element.getAttribute('data-detay');
+    document.getElementById('modal-text').textContent = detay;
+    document.getElementById('modal').style.display = 'block';
+}
+
+function closeModal() {
+    document.getElementById('modal').style.display = 'none';
+}
