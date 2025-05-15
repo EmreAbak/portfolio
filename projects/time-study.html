@@ -263,7 +263,7 @@
         <section class="content-section">
             <h2 class="section-title">Uygulanabilir Sektörler</h2>
             <div class="grid-section">
-                <div class="grid-item">
+                <div class="grid-item"onclick="showModal(this)" data-detay="BURAYA BİR ŞEYLER GELCEK">
                     <h3>Tekstil ve Konfeksiyon</h3>
                     <p>Üretim süreçlerinin optimizasyonu ve verimlilik artışı için kritik öneme sahip.</p>
                 </div>
@@ -327,6 +327,13 @@
                 </div>
             </div>
         </section>
+        <div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <p id="modal-text"></p>
+  </div>
+</div>
+
     </main>
 </body>
 </html> 
