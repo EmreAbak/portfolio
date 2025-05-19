@@ -1,79 +1,45 @@
-// Mouse hareket animasyonu için
-document.addEventListener('mousemove', (e) => {
-    const animatedBg = document.querySelector('.animated-bg');
-    const x = e.clientX / window.innerWidth;
-    const y = e.clientY / window.innerHeight;
-    
-    animatedBg.style.background = `radial-gradient(circle at ${x * 100}% ${y * 100}%, 
-        rgba(255,255,255,0.1) 0%, 
-        transparent 70%)`;
-});
+function setActive(img) {
+    document.querySelectorAll('.carousel-item').forEach(el => el.classList.remove('active'));
+    img.classList.add('active');
+}
 
-// Sayfa yüklendiğinde animasyonları başlat
-document.addEventListener('DOMContentLoaded', () => {
-    // Mouse movement animation for hero section
-    const hero = document.querySelector('.hero');
-    const animatedBg = document.querySelector('.animated-bg');
-
-    hero.addEventListener('mousemove', (e) => {
-        const { clientX, clientY } = e;
-        const { width, height } = hero.getBoundingClientRect();
-        const x = (clientX / width - 0.5) * 2;
-        const y = (clientY / height - 0.5) * 2;
-
-        animatedBg.style.transform = `translate(${x * 10}px, ${y * 10}px)`;
-        animatedBg.style.background = `radial-gradient(circle at ${clientX}px ${clientY}px, rgba(255,255,255,0.15) 0%, transparent 70%)`;
-    });
-
-    // Initialize tilt effect for project cards
-    VanillaTilt.init(document.querySelectorAll('.project-card'), {
-        max: 10,
-        speed: 400,
-        glare: true,
-        'max-glare': 0.2,
-    });
-
-    // Smooth scroll for navigation
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Add fade-in animation to sections
-    const sections = document.querySelectorAll('section');
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-                sectionObserver.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    sections.forEach(section => {
-        section.classList.add('fade-in');
-        sectionObserver.observe(section);
-    });
-}); 
-
-function showModal(element) {
+function openModal(element) {
+    const title = element.querySelector('h3').textContent;
     const detay = element.getAttribute('data-detay');
-    document.getElementById('modal-text').textContent = detay;
-    document.getElementById('modal').style.display = 'block';
+    document.getElementById('modalTitle').textContent = title;
+    document.getElementById('modalText').textContent = detay;
+    document.getElementById('sectorModal').style.display = 'block';
 }
 
 function closeModal() {
-    document.getElementById('modal').style.display = 'none';
+    document.getElementById('sectorModal').style.display = 'none';
 }
+
+window.onclick = function(event) {
+    const modal = document.getElementById('sectorModal');
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+};
+function openImageModal(el) {
+    const modal = document.getElementById('imageModal');
+    const modalTitle = document.getElementById('imageModalTitle');
+    const modalImg = document.getElementById('imageModalContent');
+
+    modal.style.display = 'flex';
+    modalTitle.textContent = el.getAttribute('data-title');
+    modalImg.src = el.getAttribute('data-detay');
+}
+
+function closeImageModal() {
+    document.getElementById('imageModal').style.display = 'none';
+}
+
+// Modal dışına tıklanınca kapatma
+window.addEventListener('click', function (event) {
+    const modal = document.getElementById('imageModal');
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+    
+});
