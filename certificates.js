@@ -37,3 +37,25 @@ document.querySelectorAll('.certificate-image').forEach(image => {
         });
     });
 }); 
+// Sertifika görseline tıklandığında modal aç
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('imageModalContent');
+
+    document.querySelectorAll('.certificate-image img').forEach(img => {
+        img.addEventListener('click', function () {
+            modal.style.display = 'flex';
+            modalImg.src = this.src;
+        });
+    });
+
+    document.querySelector('.modal .close').addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', function (event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
