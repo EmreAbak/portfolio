@@ -18,25 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Sertifika görsellerini büyütme fonksiyonu
-document.querySelectorAll('.certificate-image').forEach(image => {
-    image.addEventListener('click', function() {
-        const img = this.querySelector('img');
-        const modal = document.createElement('div');
-        modal.className = 'certificate-modal';
-        
-        const modalImg = document.createElement('img');
-        modalImg.src = img.src;
-        
-        modal.appendChild(modalImg);
-        document.body.appendChild(modal);
-        
-        // Modalı kapatma
-        modal.addEventListener('click', function() {
-            this.remove();
-        });
-    });
-}); 
+
 // Sertifika görseline tıklandığında modal aç
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('imageModal');
