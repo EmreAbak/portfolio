@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <script src="lang-switch.js" defer></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates - EMRE ABAK</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .certificate-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .certificate-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .certificate-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: all 0.3s ease;
+        }
+
+        .certificate-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .certificate-content {
+            padding: 1.5rem;
+        }
+
+        .certificate-content h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .certificate-content p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .header-content {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #1a1a3c 0%, #0a192f 100%);
+            color: white;
+        }
+
+        .header-content h1 {
+            margin-bottom: 1rem;
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .home-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            overflow: auto;
+            cursor: zoom-out;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90vh;
+            margin-top: 2%;
+        }
+
+        .modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* Zoom effect on hover */
+        .certificate-image {
+            cursor: zoom-in;
+        }
+
+        .certificate-image:hover::after {
+            content: "Büyütmek için tıklayın";
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">    
+            <h1>Certificates</h1>
+            <a href="index.html" class="home-button">
+                <i class="fas fa-home"></i> Home Page
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <div class="certificates-grid">
+            <div class="certificate-card">
+                <div class="certificate-image">
+                    <img src="images/sertifica1.png" alt="IBM Data Analyst Sertifikası">
+                </div>
+                <div class="certificate-content">
+                    <h3>IBM Data Analyst</h3>
+                    <p>This content covers the latest skills and tools used by data analysts in their daily work. It includes topics such as visualizing data with Excel and BI tools, creating reports with IBM Cognos Analytics and Tableau, analyzing data with Python, using Pandas and Numpy libraries, and integrating data with APIs and web services. Additionally, it provides practical experience through projects and applications.</p>
+                </div>
+            </div>
+
+            <div class="certificate-card">
+                <div class="certificate-image">
+                    <img src="images/sertifica2.png" alt="Google Business Intelligence Sertifikası">
+                </div>
+                <div class="certificate-content">
+                    <h3>Google Business Intelligence</h3>
+                    <p>This content deals with the roles of business intelligence (BI) professionals in organizations. It allows organizations to achieve their organizational goals by applying data modeling, data extraction, transformation, and loading (ETL) processes. Additionally, it is important to design data visualizations that answer business questions and create panels that effectively convey data to stakeholders. These processes help stakeholders gain clear insights from data.</p>
+                </div>
+            </div>
+
+            <div class="certificate-card">
+                <div class="certificate-image">
+                    <img src="images/sertifica3.png" alt="Generative AI for Data Scientists Sertifikası">
+                </div>
+                <div class="certificate-content">
+                    <h3>Generative AI for Data Scientists</h3>
+                    <p>The use of generative AI in the real world, the learning of popular generative AI models and tools for text, code, visual, audio and video, the understanding of generative AI prompt engineering concepts, examples, and common tools, the application of effective and powerful prompt creation techniques, the recognition of suitable generative AI tools for data science use cases, and the use of these tools to create, enrich, and develop machine learning models for data sets.</p>
+                </div>
+            </div>
+            <div class="certificate-card">
+                <div class="certificate-image">
+                    <img src="images/sertifica4.png" alt="Generative AI for Data Scientists Sertifikası">
+                </div>
+                <div class="certificate-content">
+                    <h3>Microsoft Program Management</h3>
+                    <p>The participant has gained skills in analyzing program management processes comprehensively, applying different work models effectively, and developing a results-oriented program management approach through practical content and evaluations.</p>
+                </div>
+            </div>
+            <div class="certificate-card">
+                <div class="certificate-image">
+                    <img src="images/sertifica5.png" alt="Generative AI for Data Scientists Sertifikası">
+                </div>
+                <div class="certificate-content">
+                    <h3>Google Project Management</h3>
+                    <p>The participant has gained basic skills in starting, planning, and executing projects using both traditional and agile (agile) methods. Through the six-part course developed by Google, participants have strengthened their project management skills through practical evaluations and practical scenarios. The course covered fundamental aspects of the project life cycle, stakeholder management, risk assessment, time and resource planning, and communication strategies, enabling participants to prepare for project management positions.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for enlarged image -->
+    <div class="modal" id="imageModal">
+        <img class="modal-content" id="enlargedImage">
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('enlargedImage');
+
+        document.querySelectorAll('.certificate-image img').forEach(img => {
+            img.addEventListener('click', function() {
+                modal.classList.add('active');
+                modalImg.src = this.src;
+            });
+        });
+
+        modal.addEventListener('click', function() {
+            modal.classList.remove('active');
+        });
+    });
+
+    </script>
+    <script src="certificates.js"></script>
+
+    <!-- Modal for enlarged certificate images -->
+<div class="modal" id="imageModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeImageModal()">&times;</span>
+    <img id="imageModalContent" src="" alt="Büyütülmüş Sertifika">
+  </div>
+</div>
+
+
+</body>
+</html> 
