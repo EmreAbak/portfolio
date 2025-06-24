@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+    <script src="../lang-switch.js" defer></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Job Analysis Studies - EMRE ABAK</title>
+<link href="../style.css" rel="stylesheet"/>
+<link href="project.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<style>
+        .project-header {
+            text-align: center;
+            padding: 5rem 2rem 3rem;
+            background: linear-gradient(135deg, #1a1a3c 0%, #0a192f 100%);
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-section:nth-child(2) { animation-delay: 0.2s; }
+        .content-section:nth-child(3) { animation-delay: 0.4s; }
+        .content-section:nth-child(4) { animation-delay: 0.6s; }
+        .content-section:nth-child(5) { animation-delay: 0.8s; }
+
+        .section-title {
+            color: #1a1a3c;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #1a1a3c;
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .bullet-list li::before {
+            content: "•";
+            color: #1a1a3c;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .grid-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .grid-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .grid-item h3 {
+            color: #1a1a3c;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .grid-item p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .note {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-left: 4px solid #1a1a3c;
+            margin-top: 2rem;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            margin-top: 1rem;
+        }
+
+        .home-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 1rem;
+            }
+
+            .grid-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 60, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+        }
+
+        /* Adjust main content to account for fixed nav */
+        body {
+            padding-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0.5rem;
+            }
+
+            .nav-links {
+                gap: 0.5rem;
+            }
+
+            .nav-link {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            body {
+                padding-top: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="nav-container">
+<div class="nav-links">
+<a class="nav-link" href="../index.html">Home Page</a>
+<a class="nav-link" href="time-study.html">Time Study Studies</a>
+<a class="nav-link" href="skill-matrix.html">Employee Special Skill Matrix Forms</a>
+<a class="nav-link" href="visual-management.html">Visual Management Studies</a>
+<a class="nav-link" href="lean-production.html">Lean Production Studies</a>
+<a class="nav-link" href="demand-forecast.html">Demand Forecast Studies</a>
+<a class="nav-link" href="ai-software.html">AI and Software Studies</a>
+<a class="nav-link" href="data-analysis.html">Data Analysis Studies</a>
+<a class="nav-link" href="dashboard.html">Dashboard Studies</a>
+<a class="nav-link active" href="work-analysis.html">Work Analysis Studies</a>
+</div>
+</nav>
+<header class="project-header">
+<h1>Work Analysis Studies</h1>
+</header>
+<main>
+<section class="content-section">
+<h2 class="section-title">Overview</h2>
+<p>Work analysis studies aim to define all processes and positions in companies clearly, determine the workload correctly, and measure the efficiency of the workforce. These studies allow organizations to use their workforce more efficiently, plan the workforce correctly, and improve processes. Thanks to work analysis, workload is calculated for each employee, and norm kadro analyses are created without the distinction between white and blue collar workers.</p>
+<p>During the analysis process, the job descriptions of the employees are clearly defined, and the workload in each position is analyzed in detail. The obtained data helps strategic decisions to improve the operational efficiency of the company. Thanks to workload analyses, unnecessary workforce losses and balanced workload distribution are prevented.</p>
+</section>
+<section class="content-section">
+<h2 class="section-title">Purpose of Application</h2>
+<ul class="bullet-list">
+<li>The correct determination of the workload</li>
+<li>Increasing the efficiency of the workforce</li>
+<li>The implementation of norm kadro analyses</li>
+<li>Preventing imbalance in workforce in processes</li>
+<li>The clear definition of job descriptions of employees</li>
+</ul>
+</section>
+<section class="content-section">
+<h2 class="section-title">Application Process</h2>
+<ul class="bullet-list">
+<li>Detailed observations are made on the processes, and the jobs of the employees are determined</li>
+<li>The workload in each position is measured, and time analysis is performed</li>
+<li>Workload calculations are made separately for white and blue collar workers</li>
+<li>The workload data is combined and norm kadro analyses are performed and reported</li>
+<li>The obtained data is shared with management and recommendations are made for workforce optimization</li>
+</ul>
+</section>
+<section class="content-section">
+<h2 class="section-title">Results and Contributions</h2>
+<ul class="bullet-list">
+<li>The efficiency of the workforce is increased</li>
+<li>The imbalance in workload between employees is eliminated</li>
+<li>Unnecessary workforce and costs are eliminated with norm kadro calculations</li>
+<li>Workforce planning becomes more accurate and efficient</li>
+<li>The processes become more efficient and sustainable</li>
+</ul>
+</section>
+<section class="content-section">
+<h2 class="section-title">Applicable Sectors</h2>
+<div class="grid-section">
+<div class="grid-item" data-detay="Work analysis plays a critical role in productivity, workforce planning, and resource management in production and industrial facilities. The analysis of each stage of the production process allows the identification of bottlenecks and inefficiencies. Thanks to these analyses, production lines are optimized, machines are used efficiently, and processes become more systematic. Additionally, workforce capacity analyses increase productivity per worker, improving the overall performance of the facility." onclick="openModal(this)">
+<h3>Production and Industrial Facilities</h3>
+<p>İş gücü verimliliği ve norm kadro analizleri.</p>
+</div>
+<div class="grid-item" data-detay="Work analysis is used to optimize production rates, workforce distribution, and quality standards in the textile and fashion industry. The correct planning of the workforce allows the identification of bottlenecks in production lines and the control of costs. Additionally, work analysis is an important tool used to improve the efficiency of supply chain management, thereby achieving high productivity with minimum errors in production processes." onclick="openModal(this)">
+<h3>Textile and Fashion</h3>
+<p>Workforce optimization in production processes.</p>
+</div>
+<div class="grid-item" data-detay="Work analysis is used in retail and distribution sectors to improve customer demand forecasts, inventory management, and distribution processes. By analyzing sales data and customer behavior, the correct inventory levels are determined, and each stage of the supply chain is optimized. Additionally, work analysis makes retail processes more efficient, increases customer satisfaction, and reduces operational costs." onclick="openModal(this)">
+<h3>Retail and Distribution</h3>
+<p>Workload analysis in operational processes.</p>
+</div>
+<div class="grid-item" data-detay="Work analysis is important in service and consulting sectors to better understand customer needs and improve service quality. The analysis of relevant processes increases employee efficiency and allows for faster response to customer demands. Additionally, inefficiencies in processes are identified, resources are used more efficiently, and service quality is improved." onclick="openModal(this)">
+<h3>Service and Consulting</h3>
+<p>Work analysis for white collar workers.</p>
+</div>
+<div class="grid-item" data-detay="Work analysis is essential for construction and infrastructure sectors to ensure projects are completed on time and within budget. Analyses in project management, workforce planning, and resource allocation contribute to the efficient execution of projects. Additionally, work analysis enables the identification of risks in construction processes and allows for proper management of each stage of the project." onclick="openModal(this)">
+<h3>Construction and Infrastructure</h3>
+<p>Project-based workforce planning.</p>
+</div>
+<div class="grid-item" data-detay="Work analysis is used in the healthcare sector to optimize patient care processes, improve resource utilization, and increase operational efficiency. The analysis of patient flow, staff assignments, and healthcare service processes allows for faster and higher quality service delivery. Additionally, work analysis helps improve healthcare service quality and control costs." onclick="openModal(this)">
+<h3>Healthcare</h3>
+<p>Workload evaluation of healthcare staff.</p>
+</div>
+</div>
+</section>
+<section class="content-section">
+<h2 class="section-title">Benefited Departments</h2>
+<div class="grid-section">
+<div class="grid-item" data-detay="Human resources department uses work analysis to improve employee efficiency, skill management, and organizational structure. Work analysis plays a crucial role in determining correct hiring, training needs, and career development plans. Additionally, work analysis increases employee satisfaction and efficiency in performance management processes." onclick="openModal(this)">
+<h3>Human Resources</h3>
+<p>Employee efficiency and workforce planning.</p>
+</div>
+<div class="grid-item" data-detay="Production and planning department uses work analysis to plan production processes more efficiently. Work analysis helps optimize resource utilization, eliminate bottlenecks in production lines, and prevent time loss. This way, production processes become more efficient, costs decrease, and production targets are easier to achieve." onclick="openModal(this)">
+<h3>Production and Planning</h3>
+<p>Workforce needs and norm kadro calculations.</p>
+</div>
+<div class="grid-item" data-detay="Finance and cost department uses work analysis to better understand the company's financial situation and control costs effectively. Work analysis is used to evaluate cost distribution, expense items, and profitability ratios. This way, financial resources are used more efficiently, and budget overruns are prevented." onclick="openModal(this)">
+<h3>Finance and Cost</h3>
+<p>İş gücü maliyetlerinin kontrolü ve optimizasyonu.</p>
+</div>
+<div class="grid-item" data-detay="Quality management department uses work analysis to improve quality control processes, set standards, and minimize error rates. Each stage of the production process is analyzed to identify quality problems and take corrective actions. This way, quality management processes become more transparent and error-free production is achieved." onclick="openModal(this)">
+<h3>Quality Management</h3>
+<p>Employee performance evaluations.</p>
+</div>
+<div class="grid-item" data-detay="Strategy and development department uses work analysis to determine the necessary strategies to achieve long-term company goals. Market analyses, competitive situation detection, and evaluation of growth opportunities are performed with work analysis. Additionally, strategic decisions are made for new business opportunities and operational developments, thereby increasing the company's competitive power." onclick="openModal(this)">
+<h3>Strategy and Development</h3>
+<p>Workforce efficiency goals and growth plans.</p>
+</div>
+</div>
+</section>
+<section class="content-section">
+    <h2 class="section-title">Examples</h2>
+    <div class="grid-section">
+      <div class="grid-item" data-title="Görsel 1" data-detay="../images/i1.PNG" onclick="openImageModal(this)">
+        <img src="../images/i1.PNG" alt="Örnek 1" style="width: 100%; border-radius: 0px;">
+      </div>
+      <div class="grid-item" data-title="Görsel 2" data-detay="../images/i2.PNG" onclick="openImageModal(this)">
+        <img src="../images/i2.PNG" alt="Örnek 2" style="width: 100%; border-radius: 0px;">
+      </div>
+      <div class="grid-item" data-title="Görsel 3" data-detay="../images/i3.png" onclick="openImageModal(this)">
+        <img src="../images/i3.png" alt="Örnek 3" style="width: 100%; border-radius: 0px;">
+      </div>
+      <div class="grid-item" data-title="Görsel 4" data-detay="../images/i4.png" onclick="openImageModal(this)">
+        <img src="../images/i4.png" alt="Örnek 4" style="width: 100%; border-radius: 0px;">
+      </div>
+      <div class="grid-item" data-title="Görsel 5" data-detay="../images/i5.png" onclick="openImageModal(this)">
+        <img src="../images/i5.png" alt="Örnek 5" style="width: 100%; border-radius: 0px;">
+      </div>
+    </div>
+  </section>
+  
+  <div class="modal" id="imageModal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background-color:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:9999;">
+    <div class="modal-content" style="background:#fff; padding:20px; border-radius:0px; max-width:90%; max-height:90%; overflow:auto; position:fixed;">
+      <span class="close" onclick="closeImageModal()" style="position:absolute; top:10px; right:15px; font-size:24px; cursor:pointer;">&times;</span>
+      <h2 id="imageModalTitle" style="margin-bottom:1rem;"></h2>
+      <img id="imageModalContent" src="" alt="Detay Görseli" style="width:100%; max-height:70vh; object-fit:contain; border-radius:10px;">
+    </div>
+  </div>
+  
+  <script>
+  function openImageModal(el) {
+    const modal = document.getElementById('imageModal');
+    const modalTitle = document.getElementById('imageModalTitle');
+    const modalImg = document.getElementById('imageModalContent');
+  
+    modal.style.display = 'flex';
+    modalTitle.textContent = el.getAttribute('data-title');
+    modalImg.src = el.getAttribute('data-detay');
+  }
+  
+  function closeImageModal() {
+    document.getElementById('imageModal').style.display = 'none';
+  }
+  </script>  
+</main>
+<div class="modal" id="sectorModal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">×</span>
+<h2 id="modalTitle"></h2>
+<p id="modalText"></p>
+</div>
+</div>
+<script src="../script.js"></script></body>
+</html> 

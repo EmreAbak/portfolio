@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+    <script src="../lang-switch.js" defer></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Visual Management - EMRE ABAK</title>
+<link href="../style.css" rel="stylesheet"/>
+<link href="project.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<style>
+        .project-header {
+            text-align: center;
+            padding: 5rem 2rem 3rem;
+            background: linear-gradient(135deg, #1a1a3c 0%, #0a192f 100%);
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-section:nth-child(2) { animation-delay: 0.2s; }
+        .content-section:nth-child(3) { animation-delay: 0.4s; }
+        .content-section:nth-child(4) { animation-delay: 0.6s; }
+        .content-section:nth-child(5) { animation-delay: 0.8s; }
+
+        .section-title {
+            color: #1a1a3c;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #1a1a3c;
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .bullet-list li::before {
+            content: "•";
+            color: #1a1a3c;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .grid-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .grid-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .grid-item h3 {
+            color: #1a1a3c;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .grid-item p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .note {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-left: 4px solid #1a1a3c;
+            margin-top: 2rem;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            margin-top: 1rem;
+        }
+
+        .home-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 1rem;
+            }
+
+            .grid-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 60, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+        }
+
+        /* Adjust main content to account for fixed nav */
+        body {
+            padding-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0.5rem;
+            }
+
+            .nav-links {
+                gap: 0.5rem;
+            }
+
+            .nav-link {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            body {
+                padding-top: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="nav-container">
+<div class="nav-links">
+<a class="nav-link" href="../index.html">Home Page</a>
+<a class="nav-link" href="time-study.html">Time Study</a>
+<a class="nav-link" href="skill-matrix.html">Employee Special Skill Matrix Forms</a>
+<a class="nav-link active" href="visual-management.html">Visual Management</a>
+<a class="nav-link" href="lean-production.html">Lean Production</a>
+<a class="nav-link" href="demand-forecast.html">Demand Forecast</a>
+<a class="nav-link" href="ai-software.html">AI Software</a>
+<a class="nav-link" href="data-analysis.html">Data Analysis</a>
+<a class="nav-link" href="dashboard.html">Dashboard</a>
+<a class="nav-link" href="work-analysis.html">Work Analysis</a>
+</div>
+</nav>
+<header class="project-header">
+<h1>Visual Management</h1>
+</header>
+<main>
+<section class="content-section">
+<h2 class="section-title">General Overview</h2>
+<p>Visual management activities are a management system that allows the monitoring and management of processes, performance, and goals with visual tools. This system aims to share information quickly and effectively, detect problems early, and accelerate problem-solving processes. Visual management tools encourage active participation in processes and support continuous improvement culture.</p>
+</section>
+<section class="content-section">
+<h2 class="section-title">Application Purpose</h2>
+<ul class="bullet-list">
+<li>Monitoring and management of processes and performance with visual tools</li>
+<li>Acceleration of information flow and transparency</li>
+<li>Early detection of problems and rapid problem-solving</li>
+<li>Increased employee participation and awareness</li>
+<li>Supporting continuous improvement culture</li>
+</ul>
+</section>
+<section class="content-section">
+<h2 class="section-title">Application Process</h2>
+<ul class="bullet-list">
+<li>Determining visual management needs and goals</li>
+<li>Designing and implementing suitable visual management tools</li>
+<li>Creating performance indicators and tracking systems</li>
+<li>Providing employee training and ensuring effective use of the system</li>
+<li>Regular review and update processes</li>
+</ul>
+</section>
+<section class="content-section">
+<h2 class="section-title">Results and Contributions</h2>
+<ul class="bullet-list">
+<li>Increased process efficiency and performance</li>
+<li>Enhanced communication and information sharing</li>
+<li>Problems are detected and solved faster</li>
+<li>Increased employee participation and motivation</li>
+<li>Continuous improvement culture is established</li>
+</ul>
+<div class="note">
+<p>Note: Details of other visual management activities are not shared due to confidentiality.</p>
+</div>
+</section>
+<section class="content-section">
+<h2 class="section-title">Applicable Sectors</h2>
+<div class="grid-section">
+<div class="grid-item" data-detay="In the production and manufacturing sectors, visual management activities help processes run more efficiently and without errors. This method visualizes information flow, allowing employees to be directed quickly and correctly. Visual tools, such as colored labels, digital screens, and graphs, reduce error rates, optimize workflows, and use resources more efficiently. Visual management makes each stage of the production process transparent, increasing employee motivation and strengthening internal communication, which directly affects overall efficiency and quality." onclick="openModal(this)">
+<h3>Production and Manufacturing</h3>
+<p>Visual tracking of production processes and performance.</p>
+</div>
+<div class="grid-item" data-detay="In the textile and fashion sector, visual management activities help production processes to progress quickly and efficiently. By using color codes, graphs, and digital indicators, the workforce is directed more efficiently, and problems in production lines are detected immediately. Additionally, quality control processes are monitored in accordance with standards through visual signs. This way, error rates decrease, workforce efficiency increases, and the production process becomes more transparent, strengthening communication and coordination between employees.
+" onclick="openModal(this)">
+<h3>Textile and Fashion</h3>
+<p>Visual management of production lines and quality control.</p>
+</div>
+<div class="grid-item" data-detay="In the logistics and storage sector, visual management plays a significant role in inventory tracking and managing material flow. By using colored labels, routing tables, and digital tracking systems, materials are quickly located, and inventory errors are minimized. Additionally, visual tools help manage shipping and delivery processes more effectively, reducing time losses. This way, logistics operations become more efficient and customer satisfaction is increased." onclick="openModal(this)">
+<h3>Logistics and Storage</h3>
+<p>Visual control of stock and shipping processes.</p>
+</div>
+<div class="grid-item" data-detay="In the healthcare sector, visual management helps improve the efficiency of patient care processes. By using visual signs, routing information, and emergency information, healthcare staff can work more effectively. Additionally, visual management helps improve the transparency of quality control and safety processes, reducing errors in patient care. This way, the efficiency of healthcare services is increased, and patient satisfaction is directly improved." onclick="openModal(this)">
+<h3>Healthcare Services</h3>
+<p>Visual tracking of patient care and operational processes.</p>
+</div>
+<div class="grid-item" data-detay="In the construction and construction sector, visual management helps organize work flows in construction sites and increase worker safety. When project plans, safety instructions, and work processes are presented visually, workers can quickly access the necessary information and work without errors. Visual signs in the work area help track material management and safety protocols. This way, projects are completed on time, quality control processes are improved, and work accidents are prevented." onclick="openModal(this)">
+<h3>Construction and Construction</h3>
+<p>Project progress and safety management.</p>
+</div>
+<div class="grid-item" data-detay="In the retail sector, visual management provides significant benefits in many areas, from product placement in stores to customer service. By using product labels, price lists, discount announcements, and routing panels, customers can easily and quickly experience a shopping experience. Additionally, visual arrangements in stores help employees perform their tasks more effectively. Visual management not only increases customer satisfaction but also improves operational efficiency." onclick="openModal(this)">
+<h3>Retail</h3>
+<p>Visual management of store operations and inventory management.</p>
+</div>
+</div>
+</section>
+<section class="content-section">
+<h2 class="section-title">Benefited Departments</h2>
+<div class="grid-section">
+<div class="grid-item" data-detay="The production department is one of the areas that benefit most from visual management activities. Visual tools help track each stage of the production process in a systematic way. Color labels, graphs, and digital screens make production rates, goals, and problems visible instantly, which allows employees to respond quickly. Additionally, visualizing the production process is an important tool for detecting possible bottlenecks and optimizing processes." onclick="openModal(this)">
+<h3>Production</h3>
+<p>Production processes and performance tracking.</p>
+</div>
+<div class="grid-item" data-detay="The quality management department is responsible for ensuring that production processes are carried out according to standards. Visual management makes quality control and inspections more transparent and efficient. Quality parameters, error rates, and corrective actions can be monitored instantly through visual tools. This helps quality management teams detect errors early and take corrective steps more easily. Additionally, visual signs and panels ensure that quality standards are understood by all employees." onclick="openModal(this)">
+<h3>Quality Management</h3>
+<p>Quality control and improvement processes.</p>
+</div>
+<div class="grid-item" data-detay="The safety department uses visual management tools to ensure the safety and health of employees. Safety instructions, emergency exit signs, and danger warnings are presented visually in construction sites, production lines, and warehouses. These visual tools help employees follow safety procedures and prevent accidents. Additionally, visual signs provide clear guidance in emergency situations, minimizing work accidents." onclick="openModal(this)">
+<h3>Safety</h3>
+<p>Safety standards and risk management.</p>
+</div>
+<div class="grid-item" data-detay="The maintenance and repair department uses visual management tools to ensure that machines and equipment are continuously operational. Maintenance schedules, breakdowns, and pre- and post-maintenance controls are presented visually. This way, maintenance processes become more systematic and efficient. Additionally, visual panels provide instant information about machine status, helping to detect breakdowns early and ensure timely execution of planned maintenance activities." onclick="openModal(this)">
+<h3>Maintenance and Repair</h3>
+<p>Equipment maintenance and breakdown tracking.</p>
+</div>
+<div class="grid-item" data-detay="The logistics department uses visual management tools to make material flow and inventory management more efficient. Visual tools optimize material shipping, stock levels, and warehouse organization. Inventory labels, storage signs, and routing tables ensure that logistics processes are executed faster and more accurately. Additionally, visual materials for daily goals and order status help track processes more easily and prevent time losses for logistics personnel." onclick="openModal(this)">
+<h3>Logistics</h3>
+<p>Stock and shipping management.</p>
+</div>
+<div class="grid-item" data-detay="The human resources department uses visual management tools to monitor employee performance, plan training programs, and increase employee satisfaction. Visual panels and digital screens broadcast performance goals, training programs, and communication information, helping employees to be more aware and motivated. Additionally, visual materials used in recruitment processes allow candidates to obtain information more quickly and effectively, creating positive effects on employee satisfaction and loyalty." onclick="openModal(this)">
+<h3>Human Resources</h3>
+<p>Training and performance tracking systems.</p>
+</div>
+</div>
+</section>
+<section class="content-section">
+    <h2 class="section-title">Examples</h2>
+    <div class="grid-section">
+        <div class="grid-item" data-title="Görsel 1" data-detay="../images/g1.jpeg" onclick="openImageModal(this)">
+          <img src="../images/g1.jpeg" alt="Örnek 1" style="width: 100%; border-radius: 0px;">
+        </div>
+        <div class="grid-item" data-title="Görsel 2" data-detay="../images/g2.jpeg" onclick="openImageModal(this)">
+          <img src="../images/g2.jpeg" alt="Örnek 2" style="width: 100%; border-radius: 0px;">
+        </div>
+        <div class="grid-item" data-title="Görsel 3" data-detay="../images/g3.jpeg" onclick="openImageModal(this)">
+          <img src="../images/g3.jpeg" alt="Örnek 3" style="width: 100%; border-radius: 0px;">
+        </div>
+        <div class="grid-item" data-title="Görsel 4" data-detay="../images/g4.jpeg" onclick="openImageModal(this)">
+          <img src="../images/g4.jpeg" alt="Örnek 4" style="width: 100%; border-radius: 0px;">
+        
+      
+          </div>
+      </div>
+    </section>
+    
+    <div class="modal" id="imageModal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background-color:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:9999;">
+      <div class="modal-content" style="background:#fff; padding:20px; border-radius:0px; max-width:90%; max-height:90%; overflow:auto; position:fixed;">
+        <span class="close" onclick="closeImageModal()" style="position:absolute; top:10px; right:15px; font-size:24px; cursor:pointer;">&times;</span>
+        <h2 id="imageModalTitle" style="margin-bottom:1rem;"></h2>
+        <img id="imageModalContent" src="" alt="Detay Görseli" style="width:100%; max-height:70vh; object-fit:contain; border-radius:10px;">
+      </div>
+    </div>
+    <script>
+        function openImageModal(el) {
+          const modal = document.getElementById('imageModal');
+          const modalTitle = document.getElementById('imageModalTitle');
+          const modalImg = document.getElementById('imageModalContent');
+        
+          modal.style.display = 'flex';
+          modalTitle.textContent = el.getAttribute('data-title');
+          modalImg.src = el.getAttribute('data-detay');
+        }
+        
+        function closeImageModal() {
+          document.getElementById('imageModal').style.display = 'none';
+        }
+        </script>  
+      </main>
+      <div class="modal" id="sectorModal">
+      <div class="modal-content">
+      <span class="close" onclick="closeModal()">×</span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalText"></p>
+      </div>
+      </div>
+      <script src="../script.js"></script></body>
+      </html> 

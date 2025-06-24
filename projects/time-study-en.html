@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+    <script src="../lang-switch.js" defer></script>
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Time Study - EMRE ABAK</title>
+<link href="../style.css" rel="stylesheet"/>
+<link href="project.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<style>
+        .project-header {
+            text-align: center;
+            padding: 5rem 2rem 3rem;
+            background: linear-gradient(135deg, #1a1a3c 0%, #0a192f 100%);
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-section:nth-child(2) { animation-delay: 0.2s; }
+        .content-section:nth-child(3) { animation-delay: 0.4s; }
+        .content-section:nth-child(4) { animation-delay: 0.6s; }
+        .content-section:nth-child(5) { animation-delay: 0.8s; }
+
+        .section-title {
+            color: #1a1a3c;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #1a1a3c;
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .bullet-list li::before {
+            content: "•";
+            color: #1a1a3c;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .grid-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .grid-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .grid-item h3 {
+            color: #1a1a3c;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .grid-item p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .note {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-left: 4px solid #1a1a3c;
+            margin-top: 2rem;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            margin-top: 1rem;
+        }
+
+        .home-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 1rem;
+            }
+
+            .grid-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 60, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+        }
+
+        /* Adjust main content to account for fixed nav */
+        body {
+            padding-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0.5rem;
+            }
+
+            .nav-links {
+                gap: 0.5rem;
+            }
+
+            .nav-link {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            body {
+                padding-top: 100px;
+            }
+        }
+    </style>
+</head>
+<div class="modal" id="imageModal">
+    <div class="modal-content">
+    <div class="zoom-container">
+      <span class="close" onclick="closeImageModal()">×</span>
+      <h2 id="imageModalTitle"></h2>
+    
+      <img id="imageModalContent" src="" alt="Detay Görseli" style="width: 100%; border-radius: 10px;">
+    </div>
+    </div>
+  </div>
+  
+<body>
+<nav class="nav-container">
+<div class="nav-links">
+<a class="nav-link" href="../index.html">Home Page</a>
+<a class="nav-link active" href="time-study.html">Time Study</a>
+<a class="nav-link" href="skill-matrix.html">Employee Special Skill Matrix Forms</a>
+<a class="nav-link" href="visual-management.html">Visual Management</a>
+<a class="nav-link" href="lean-production.html">Lean Production</a>
+<a class="nav-link" href="demand-forecast.html">Demand Forecast</a>
+<a class="nav-link" href="ai-software.html">AI Software</a>
+<a class="nav-link" href="data-analysis.html">Data Analysis</a>
+<a class="nav-link" href="dashboard.html">Dashboard</a>
+<a class="nav-link" href="work-analysis.html">Work Analysis</a>
+</div>
+</nav>
+<header class="project-header">
+<h1>Time Study</h1>
+</header>
+<main>
+<section class="content-section">
+<h2 class="section-title">General Overview</h2>
+<p>Time study is a process of evaluating, measuring, and analyzing each step of an operation. This work is crucial for improving operational efficiency, optimizing resource utilization, and making operations more efficient. Time study is used as a tool to improve workforce management and achieve organizational goals.</p>
+</section>
+<section class="content-section">
+<h2 class="section-title">Application Purpose</h2>
+<ul class="bullet-list">
+<li>Identifying time losses in operations to improve efficiency</li>
+<li>Ensuring that employees perform their tasks more efficiently</li>
+<li>Developing strategies to make processes faster and more efficient</li>
+<li>Optimizing resource utilization and reducing costs</li>
+</ul>
+</section>
+<section class="content-section">
+<h2 class="section-title">Application Process</h2>
+<ul class="bullet-list">
+<li>First, each operation is observed and measured in detail.</li>
+<li>Each step in the process is evaluated in terms of time, based on the current work flow.</li>
+<li>The data obtained shows how long it takes to complete the tasks and which areas can be improved.</li>
+<li>After the necessary analyses are performed, the areas to be improved in the processes are determined and adjustments are made accordingly.</li>
+<li>All activities are supported by time study reports and the results are presented to the relevant units.</li>
+</ul>
+</section>
+<section class="content-section">
+<h2 class="section-title">Results and Contributions</h2>
+<ul class="bullet-list">
+<li>Operational efficiency is increased in production processes</li>
+<li>Workforce losses are identified and prevented</li>
+<li>Standard operation times are determined</li>
+<li>Capacity calculations are more accurate</li>
+<li>Cost and planning processes are improved</li>
+</ul>
+</section>
+<section class="content-section">
+<h2 class="section-title">Applicable Sectors</h2>
+<div class="grid-section">
+<div class="grid-item" data-detay="Time study activities are used to increase the speed and efficiency of production processes in the textile and fashion sector. The efficiency of workforce and machines is analyzed, bottlenecks in production lines are identified, and processes are optimized. Additionally, productivity per worker is increased, overtime rates are reduced, and production targets are reached faster. Thanks to these activities, production costs decrease and quality control processes are improved." onclick="openModal(this)">
+<h3>Textile and Fashion</h3>
+<p>Production processes are optimized and efficiency is increased.</p>
+</div>
+<div class="grid-item"data-detay="Time study activities are used to increase the efficiency of production processes in the automotive and machine manufacturing sector. The working time of machines, the efficiency of workforce, and the production capacity are analyzed, bottlenecks and time losses are identified, and processes are optimized. Thanks to these analyses, production processes are accelerated, workforce and machines are optimized, and more products are produced with fewer resources. Additionally, quality control processes are improved." onclick="openModal(this)">
+<h3>Automotive and Machine Manufacturing</h3>
+<p>Time management and quality control in sensitive production processes are essential.</p>
+</div>
+<div class="grid-item"data-detay="Time study activities are used to increase the efficiency of production and packaging processes in the food production and packaging sector. The efficiency of workforce and machines in each step of the production process is analyzed in detail. Thanks to this, faster production is provided, bottlenecks in packaging lines are eliminated, and stock levels are under control. Additionally, food safety and hygiene standards are maintained, and waste rates are minimized." onclick="openModal(this)">
+<h3>Food Production and Packaging</h3>
+<p>Time study activities are essential for fast and efficient production processes.</p>
+</div>
+<div class="grid-item"data-detay="Time study activities play a critical role in accelerating inventory management and shipping processes in the logistics and warehouse management sector. The efficiency of workforce in storage areas, the timing of transportation processes, and material flow are analyzed. Thanks to this, warehouse management processes are optimized, delivery times are shortened, and operational costs are reduced. Additionally, stock movements are made more efficient, and workforce planning is improved." onclick="openModal(this)">
+<h3>Logistics and Warehouse Management</h3>
+<p>Optimization of warehouse operations and improvement of shipping processes.</p>
+</div>
+<div class="grid-item"data-detay="Time study activities are used to increase the speed and efficiency of customer service processes in the service sector. The efficiency of workforce, service times, and customer interactions are analyzed. Thanks to this, customer satisfaction is increased, service times are shortened, and resources are used more efficiently. Additionally, service quality is improved, and customer requests are answered faster." onclick="openModal(this)">
+<h3>Service Sector</h3>
+<p>Increasing the efficiency of customer service and operational processes.</p>
+</div>
+<div class="grid-item"data-detay="Time study activities are used to accelerate patient care processes and improve the efficiency of healthcare services in the healthcare sector. Various procedures in the hospital, patient admission, treatment processes, and workforce efficiency are analyzed. Thanks to this, workforce is used more efficiently, patient waiting times are shortened, and general healthcare services become faster and more effective. Additionally, staff training and process improvements increase quality standards." onclick="openModal(this)">
+<h3>Healthcare Institutions</h3>
+<p>Time management of patient care and hospital operations.</p>
+</div>
+<div class="grid-item"data-detay="Time study activities are used to optimize production and maintenance processes in the defense and aviation sector. Engineering design, production, assembly, and maintenance processes are analyzed in detail to identify time losses. Thanks to this, production processes of high-value products are accelerated, maintenance processes become more efficient, and resource utilization is optimized. Additionally, quality control processes are strictly monitored, and product safety is increased." onclick="openModal(this)">
+<h3>Defense and Aviation</h3>
+<p>Time optimization of sensitive production and maintenance processes.</p>
+</div>
+<div class="grid-item"data-detay="Time study activities are used to improve the efficiency of software development and system management processes in the technology sector. Development times, software test processes, and project management are analyzed to identify time losses. Thanks to this, software projects are completed faster, team efficiency increases, and customer requests are answered faster. Additionally, project management becomes more systematic, and resource utilization is optimized." onclick="openModal(this)">
+<h3>Technology Companies</h3>
+<p>Improvement of software development and project management processes.</p>
+</div>
+</div>
+</section>
+<section class="content-section">
+<h2 class="section-title">Benefited Departments</h2>
+<div class="grid-section">
+<div class="grid-item"data-detay="Production department uses time study activities to improve production processes, increase workforce efficiency, and optimize machine utilization. These activities help identify bottlenecks and optimize production lines. Additionally, production times are reduced, and more products are produced at lower costs." onclick="openModal(this)">
+<h3>Production Department</h3>
+<p>Optimization of production lines and identification of bottlenecks to increase efficiency.</p>
+</div>
+<div class="grid-item"data-detay="Planning department uses time study activities to improve production planning and make it more efficient. The analysis of times helps to determine production goals in a realistic way. Additionally, supply chain management and resource utilization planning become more effective, thus minimizing time losses and disruptions." onclick="openModal(this)">
+<h3>Planning Department</h3>
+<p>Provides data for more efficient production and service planning.</p>
+</div>
+<div class="grid-item"data-detay="Human resources department uses time study activities to plan workforce and increase efficiency. The efficiency levels of employees and workforce capacity are analyzed, thus enabling correct workforce placement. Additionally, education needs are identified and development areas of employees are determined. Furthermore, workforce costs are optimized and workforce efficiency is increased." onclick="openModal(this)">
+<h3>Human Resources</h3>
+<p>Used to determine employee efficiency and education needs.</p>
+</div>
+<div class="grid-item"data-detay="Quality management department uses time study activities to monitor production processes more effectively and optimize quality control processes. The analysis of times is used to increase production speed without affecting product quality. Additionally, resources needed for maintaining quality standards are used more efficiently, and process improvements are made." onclick="openModal(this)">
+<h3>Quality Management</h3>
+<p>Provides data for process improvement and quality control activities.</p>
+</div>
+<div class="grid-item"data-detay="Process development department uses time study activities to increase operational efficiency. Current processes are analyzed to develop faster and more effective methods. This way, unnecessary steps are eliminated, time losses are minimized, and resources are used more efficiently." onclick="openModal(this)">
+<h3>Process Development</h3>
+<p>Used to continuously monitor and improve processes.</p>
+</div>
+<div class="grid-item"data-detay="Finance department uses time study activities to perform cost analyses and optimize resource utilization. This way, production costs are more accurately estimated, and budget planning is optimized. Additionally, costs resulting from time losses are prevented." onclick="openModal(this)">
+<h3>Finance Department</h3>
+<p>Provides data for more effective cost management.</p>
+</div>
+</div>
+<section class="content-section">
+    <h2 class="section-title">Examples</h2>
+    <div class="grid-section">
+      <div class="grid-item" data-title="Görsel 1" data-detay="../images/z1.png" onclick="openImageModal(this)">
+        <img src="../images/z1.png" alt="Örnek 1" style="width: 100%; border-radius: 0px;">
+      </div>
+      <div class="grid-item" data-title="Görsel 2" data-detay="../images/z2.png" onclick="openImageModal(this)">
+        <img src="../images/z2.png" alt="Örnek 2" style="width: 100%; border-radius: 0px;">
+      </div>
+      <div class="grid-item" data-title="Görsel 3" data-detay="../images/z3.png" onclick="openImageModal(this)">
+        <img src="../images/z3.png" alt="Örnek 3" style="width: 100%; border-radius: 0px;">
+      </div>
+      <div class="grid-item" data-title="Görsel 4" data-detay="../images/z4.png" onclick="openImageModal(this)">
+        <img src="../images/z4.png" alt="Örnek 4" style="width: 100%; border-radius: 0px;">
+      </div>
+    </div>
+  </section>
+  
+  <div class="modal" id="imageModal">
+    <div class="modal-content">
+      
+        <span class="close" onclick="closeImageModal()">×</span>
+        <h2 id="imageModalTitle"></h2>
+        <div class="zoom-container">
+        <img id="imageModalContent" src="" alt="Detay Görseli" style="width: 100%; border-radius: 10px;">
+      </div>
+    </div>
+  </div>
+  
+  
+  <script>
+  function openImageModal(el) {
+    const modal = document.getElementById('imageModal');
+    const modalTitle = document.getElementById('imageModalTitle');
+    const modalImg = document.getElementById('imageModalContent');
+  
+    modal.style.display = 'flex';
+    modalTitle.textContent = el.getAttribute('data-title');
+    modalImg.src = el.getAttribute('data-detay');
+  }
+  
+  function closeImageModal() {
+    document.getElementById('imageModal').style.display = 'none';
+  }
+  </script>  
+</main>
+<div class="modal" id="sectorModal">
+    <div class="modal-content">
+    <span class="close" onclick="closeModal()">×</span>
+    <h2 id="modalTitle"></h2>
+    <p id="modalText"></p>
+    </div>
+    </div>
+    <script src="../script.js"></script></body>
+    </html> 

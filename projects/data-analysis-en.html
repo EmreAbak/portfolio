@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+    <script src="../lang-switch.js" defer></script>
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Data Analysis Studies - EMRE ABAK</title>
+<link href="../style.css" rel="stylesheet"/>
+<link href="project.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<style>
+        .project-header {
+            text-align: center;
+            padding: 5rem 2rem 3rem;
+            background: linear-gradient(135deg, #1a1a3c 0%, #0a192f 100%);
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-section:nth-child(2) { animation-delay: 0.2s; }
+        .content-section:nth-child(3) { animation-delay: 0.4s; }
+        .content-section:nth-child(4) { animation-delay: 0.6s; }
+        .content-section:nth-child(5) { animation-delay: 0.8s; }
+
+        .section-title {
+            color: #1a1a3c;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #1a1a3c;
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .bullet-list li::before {
+            content: "•";
+            color: #1a1a3c;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .grid-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .grid-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .grid-item h3 {
+            color: #1a1a3c;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .grid-item p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .note {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-left: 4px solid #1a1a3c;
+            margin-top: 2rem;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            margin-top: 1rem;
+        }
+
+        .home-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 1rem;
+            }
+
+            .grid-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 60, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+        }
+
+        /* Adjust main content to account for fixed nav */
+        body {
+            padding-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0.5rem;
+            }
+
+            .nav-links {
+                gap: 0.5rem;
+            }
+
+            .nav-link {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            body {
+                padding-top: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="nav-container">
+<div class="nav-links">
+<a class="nav-link" href="../index.html">Home Page</a>
+<a class="nav-link" href="time-study.html">Time Study Studies</a>
+<a class="nav-link" href="skill-matrix.html">Employee Special Skill Matrix Forms</a>
+<a class="nav-link" href="visual-management.html">Visual Management Studies</a>
+<a class="nav-link" href="lean-production.html">Lean Production Studies</a>
+<a class="nav-link" href="demand-forecast.html">Demand Forecast Studies</a>
+<a class="nav-link" href="ai-software.html">AI and Software Studies</a>
+<a class="nav-link active" href="data-analysis.html">Data Analysis Studies</a>
+<a class="nav-link" href="dashboard.html">Dashboard Studies</a>
+<a class="nav-link" href="work-analysis.html">Work Analysis Studies</a>
+</div>
+</nav>
+<header class="project-header">
+<h1>Data Analysis Studies</h1>
+</header>
+<main>
+<section class="content-section">
+<h2 class="section-title">General Overview</h2>
+<p>Data analysis studies are conducted to improve the understanding of business processes, monitor performance, and support decision-making processes with numerical data. Through these studies, past data is examined, trends are identified, and insights related to processes are obtained. In the analysis process, data from different sources is collected, organized, and structured to make them meaningful and understandable.</p>
+</section>
+<section class="content-section">
+<h2 class="section-title">Application Purpose</h2>
+<ul class="bullet-list">
+<li>Supporting a data-driven thinking culture in decision-making processes</li>
+<li>Measuring and identifying improvement areas in processes</li>
+<li>Simplifying complex data to make them easily understandable</li>
+<li>Shortening reporting times and standardizing analysis processes</li>
+</ul>
+</section>
+<section class="content-section">
+<h2 class="section-title">Application Process</h2>
+<ul class="bullet-list">
+<li>Data from various sources is collected for relevant processes</li>
+<li>Missing, incorrect, or repeated data is cleaned and prepared for analysis</li>
+<li>Basic statistical analyses are performed according to the determined indicators</li>
+<li>Time series, comparisons, and performance measurements are made</li>
+<li>The results are reported in visual tables and graphs</li>
+</ul>
+</section>
+<section class="content-section">
+<h2 class="section-title">Results and Contributions</h2>
+<ul class="bullet-list">
+<li>Decision-making processes are supported by data</li>
+<li>Performance measurements become regular and transparent</li>
+<li>Reporting processes are standardized and accelerated</li>
+<li>Improvement areas are clearly visible through data</li>
+</ul>
+</section>
+<section class="content-section">
+<h2 class="section-title">Applicable Sectors</h2>
+<div class="grid-section">
+<div class="grid-item" data-detay="Data analysis helps identify trends, make predictions, and strengthen decision-making processes based on past data." onclick="openModal(this)">
+<h3>Production and Industry</h3>
+<p>Analysis of production processes and performance measurements.</p>
+</div>
+<div class="grid-item" data-detay="Data analysis helps identify trends, make predictions, and strengthen decision-making processes based on past data." onclick="openModal(this)">
+<h3>Textile and Apparel</h3>
+<p>Analysis of production efficiency and quality.</p>
+</div>
+<div class="grid-item" data-detay="Data analysis helps identify trends, make predictions, and strengthen decision-making processes based on past data." onclick="openModal(this)">
+<h3>Logistics and Supply Chain</h3>
+<p>Analysis of supply chain performance.</p>
+</div>
+<div class="grid-item" data-detay="Data analysis helps identify trends, make predictions, and strengthen decision-making processes based on past data." onclick="openModal(this)">
+<h3>Retail and E-Commerce</h3>
+<p>Analysis of sales and customer behavior.</p>
+</div>
+<div class="grid-item" data-detay="Data analysis helps identify trends, make predictions, and strengthen decision-making processes based on past data." onclick="openModal(this)">
+<h3>Consulting and Education</h3>
+<p>Analysis of process and performance.</p>
+</div>
+<div class="grid-item" data-detay="Data analysis helps identify trends, make predictions, and strengthen decision-making processes based on past data." onclick="openModal(this)">
+<h3>Technology and Software</h3>
+<p>Analysis of data and AI applications.</p>
+</div>
+</div>
+</section>
+<section class="content-section">
+<h2 class="section-title">Benefited Departments</h2>
+<div class="grid-section">
+<div class="grid-item" data-detay="Data analysis helps identify trends, make predictions, and strengthen decision-making processes based on past data." onclick="openModal(this)">
+<h3>Production and Planning</h3>
+<p>Analysis of efficiency, downtime, and resource utilization.</p>
+</div>
+<div class="grid-item" data-detay="Data analysis helps identify trends, make predictions, and strengthen decision-making processes based on past data." onclick="openModal(this)">
+<h3>Human Resources</h3>
+<p>Analysis of attendance, employee movements, and training.</p>
+</div>
+<div class="grid-item" data-detay="Data analysis helps identify trends, make predictions, and strengthen decision-making processes based on past data." onclick="openModal(this)">
+<h3>Sales and Marketing</h3>
+<p>Analysis of sales trends, campaign results, and customer behavior.</p>
+</div>
+<div class="grid-item" data-detay="Data analysis helps identify trends, make predictions, and strengthen decision-making processes based on past data." onclick="openModal(this)">
+<h3>Quality Management</h3>
+<p>Analysis of non-conformity rates and quality indicators.</p>
+</div>
+<div class="grid-item" data-detay="Data analysis helps identify trends, make predictions, and strengthen decision-making processes based on past data." onclick="openModal(this)">
+<h3>Finance and Cost</h3>
+<p>Analysis of budget tracking, costs, and profitability.</p>
+</div>
+<div class="grid-item" data-detay="Data analysis helps identify trends, make predictions, and strengthen decision-making processes based on past data." onclick="openModal(this)">
+<h3>Strategy and Business Development</h3>
+<p>Analysis of long-term planning and growth.</p>
+</div>
+</div>
+</section>
+<section class="content-section">
+    <h2 class="section-title">Examples</h2>
+    <div class="grid-section">
+        <div class="grid-item" data-title="Görsel 1" data-detay="../images/v1.png" onclick="openImageModal(this)">
+          <img src="../images/v1.png" alt="Örnek 1" style="width: 100%; border-radius: 0px;">
+        </div>
+        <div class="grid-item" data-title="Görsel 2" data-detay="../images/v2.png" onclick="openImageModal(this)">
+          <img src="../images/v2.png" alt="Örnek 2" style="width: 100%; border-radius: 0px;">
+        </div>
+        <div class="grid-item" data-title="Görsel 3" data-detay="../images/v3.png" onclick="openImageModal(this)">
+          <img src="../images/v3.png" alt="Örnek 3" style="width: 100%; border-radius: 0px;">
+        </div>
+     
+      </div>
+    </section>
+    
+    <div class="modal" id="imageModal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background-color:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:9999;">
+      <div class="modal-content" style="background:#fff; padding:20px; border-radius:0px; max-width:90%; max-height:90%; overflow:auto; position:fixed;">
+        <span class="close" onclick="closeImageModal()" style="position:absolute; top:10px; right:15px; font-size:24px; cursor:pointer;">&times;</span>
+        <h2 id="imageModalTitle" style="margin-bottom:1rem;"></h2>
+        <img id="imageModalContent" src="" alt="Detay Görseli" style="width:100%; max-height:70vh; object-fit:contain; border-radius:10px;">
+      </div>
+    </div>
+    <script>
+        function openImageModal(el) {
+          const modal = document.getElementById('imageModal');
+          const modalTitle = document.getElementById('imageModalTitle');
+          const modalImg = document.getElementById('imageModalContent');
+        
+          modal.style.display = 'flex';
+          modalTitle.textContent = el.getAttribute('data-title');
+          modalImg.src = el.getAttribute('data-detay');
+        }
+        
+        function closeImageModal() {
+          document.getElementById('imageModal').style.display = 'none';
+        }
+        </script>  
+      </main>
+      <div class="modal" id="sectorModal">
+      <div class="modal-content">
+      <span class="close" onclick="closeModal()">×</span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalText"></p>
+      </div>
+      </div>
+      <script src="../script.js"></script></body>
+      </html> 

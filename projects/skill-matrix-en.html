@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+    <script src="../lang-switch.js" defer></script>
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Employee Special Skill Matrix Forms - EMRE ABAK</title>
+<link href="../style.css" rel="stylesheet"/>
+<link href="project.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<style>
+        .project-header {
+            text-align: center;
+            padding: 5rem 2rem 3rem;
+            background: linear-gradient(135deg, #1a1a3c 0%, #0a192f 100%);
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-section:nth-child(2) { animation-delay: 0.2s; }
+        .content-section:nth-child(3) { animation-delay: 0.4s; }
+        .content-section:nth-child(4) { animation-delay: 0.6s; }
+        .content-section:nth-child(5) { animation-delay: 0.8s; }
+
+        .section-title {
+            color: #1a1a3c;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #1a1a3c;
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .bullet-list li::before {
+            content: "•";
+            color: #1a1a3c;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .grid-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .grid-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .grid-item h3 {
+            color: #1a1a3c;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .grid-item p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .note {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-left: 4px solid #1a1a3c;
+            margin-top: 2rem;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            margin-top: 1rem;
+        }
+
+        .home-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 1rem;
+            }
+
+            .grid-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 60, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+        }
+
+        /* Adjust main content to account for fixed nav */
+        body {
+            padding-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0.5rem;
+            }
+
+            .nav-links {
+                gap: 0.5rem;
+            }
+
+            .nav-link {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            body {
+                padding-top: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="nav-container">
+<div class="nav-links">
+<a class="nav-link" href="../index.html">Home Page</a>
+<a class="nav-link" href="time-study.html">Time Study</a>
+<a class="nav-link active" href="skill-matrix.html">Employee Special Skill Matrix Forms</a>
+<a class="nav-link" href="visual-management.html">Visual Management</a>
+<a class="nav-link" href="lean-production.html">Lean Production</a>
+<a class="nav-link" href="demand-forecast.html">Demand Forecast</a>
+<a class="nav-link" href="ai-software.html">AI Software</a>
+<a class="nav-link" href="data-analysis.html">Data Analysis</a>
+<a class="nav-link" href="dashboard.html">Dashboard</a>
+<a class="nav-link" href="work-analysis.html">Work Analysis</a>
+</div>
+</nav>
+<header class="project-header">
+<h1>Employee Special Skill Matrix Forms</h1>
+</header>
+<main>
+<section class="content-section">
+<h2 class="section-title">General Overview</h2>
+<p>Employee Special Skill Matrix Forms are tools used to track and evaluate the skills, abilities, and development areas of employees in companies. Through these forms, the strong points and development areas of each employee are identified, education needs are identified, and career development plans are created.</p>
+</section>
+<section class="content-section">
+<h2 class="section-title">Application Purpose</h2>
+<ul class="bullet-list">
+<li>The systematic evaluation of the skills and abilities of employees</li>
+<li>Identification of education and development needs</li>
+<li>Optimization of job rotation and task distribution</li>
+<li>Creation of career development plans</li>
+<li>Creation of organizational skill maps</li>
+</ul>
+</section>
+<section class="content-section">
+<h2 class="section-title">Application Process</h2>
+<ul class="bullet-list">
+<li>Determination of required skills and abilities for positions</li>
+<li>Creation of evaluation criteria and measurement systems</li>
+<li>Evaluation of employees' current skills</li>
+<li>Identification of development areas and preparation of education plans</li>
+<li>Regular tracking and updating processes</li>
+</ul>
+</section>
+<section class="content-section">
+<h2 class="section-title">Results and Contributions</h2>
+<ul class="bullet-list">
+<li>Employee development is tracked systematically</li>
+<li>Education programs are planned more effectively</li>
+<li>Workforce efficiency increases</li>
+<li>Career development processes become more transparent</li>
+<li>Organizational skill level increases</li>
+</ul>
+</section>
+<section class="content-section">
+<h2 class="section-title">Applicable Sectors</h2>
+<div class="grid-section">
+<div class="grid-item" data-detay="In the production and manufacturing sector, employee special skill matrices are used to increase workforce efficiency and monitor employee skill levels. These matrices evaluate the technical skills of employees, machine usage information, and expertise in production processes. This way, production processes become more efficient, education needs are identified, and correct workforce assignments are made." onclick="openModal(this)">
+<h3>Production and Manufacturing</h3>
+<p>Monitoring operator and technician skills.</p>
+</div>
+<div class="grid-item" data-detay="In the textile and fashion sector, skill matrices evaluate the skills of employees in design, production, quality control, and customer service. These matrices determine which skills employees have in production processes, thus providing a more efficient workforce distribution. Additionally, they identify education needs to keep up with rapidly changing fashion industries and production techniques." onclick="openModal(this)">
+<h3>Textile and Fashion</h3>
+<p>Evaluation of production staff skills.</p>
+</div>
+<div class="grid-item" data-detay="In the technology and software sector, skill matrices are used to evaluate technical skills, project management, team collaboration, communication, and other soft skills. These matrices not only evaluate technical skills but also cover project management, team collaboration, and communication. This way, the right skills are assigned to the right projects, and critical skills are identified to help the company succeed in innovative projects." onclick="openModal(this)">
+<h3>Technology and Software</h3>
+<p>Tracking technical skills and certifications.</p>
+</div>
+<div class="grid-item" data-detay="In the service sector, skill matrices track the skills of employees in customer relationship management, service delivery, sales, and marketing. Especially in the hospitality, retail, and customer service sectors, the communication skills and problem-solving abilities of employees are measured using matrices. This way, customer satisfaction is increased, service quality is continuously improved, and employee development is supported." onclick="openModal(this)">
+<h3>Service Sector</h3>
+<p>Evaluation of customer service and sales team skills.</p>
+</div>
+<div class="grid-item" data-detay="In the healthcare sector, skill matrices evaluate the clinical skills of doctors, nurses, and other healthcare professionals, including standardization of patient care and emergency management. Additionally, expertise in specific procedures and knowledge of healthcare technologies are included in the matrices. This way, the quality of healthcare services is increased, patient safety is ensured, and education needs are clearly identified." onclick="openModal(this)">
+<h3>Healthcare</h3>
+<p>Tracking healthcare staff skills.</p>
+</div>
+<div class="grid-item" data-detay="In education institutions, skill matrices evaluate the pedagogical skills of teachers, including mastery of teaching content, interaction with students, and use of technology. Additionally, digital pedagogical skills such as preparing educational materials and using technology are included in the matrices. This way, the development areas of teachers are identified, the quality of education is increased, and the overall performance of the school can be monitored." onclick="openModal(this)">
+<h3>Education Institutions</h3>
+<p>Trainer and teacher skills assessment.</p>
+</div>
+</div>
+</section>
+<section class="content-section">
+<h2 class="section-title">Benefited Departments</h2>
+<div class="grid-section">
+<div class="grid-item" data-detay="Human resources department uses skill matrices to evaluate employee skills and develop strategic hiring processes. These matrices help identify which skills are lacking, allowing the creation of appropriate education programs and personnel recruitment tailored to these needs. Additionally, they provide career development plans for employees." onclick="openModal(this)">
+<h3>Human Resources</h3>
+<p>Skill management and career planning.</p>
+</div>
+<div class="grid-item" data-detay="Education and development department uses skill matrices to analyze employee skills and development needs, creating personalized education programs. This way, employee skills are continuously improved, development opportunities are provided, and the overall efficiency of the company is increased. The education and development department identifies gaps in the matrices and plans strategic education programs." onclick="openModal(this)">
+<h3>Education and Development</h3>
+<p>Education needs analysis and program planning.</p>
+</div>
+<div class="grid-item" data-detay="Production and operation departments use skill matrices to make correct workforce assignments in areas requiring expertise. These matrices show which employees can use specific machines, which skills they have, and in which processes they specialize. This way, inefficiencies in production processes are minimized, and a more efficient workforce management is achieved." onclick="openModal(this)">
+<h3>Production and Operation</h3>
+<p>Workforce planning and rotation programs.</p>
+</div>
+<div class="grid-item" data-detay="Quality management department uses skill matrices to improve the efficiency of quality control processes and support continuous improvement. Employees' skills in quality management, process improvement, and error analysis play a critical role in improving product and service quality. This way, quality standards are maintained, and customer satisfaction is continuously ensured." onclick="openModal(this)">
+<h3>Quality Management</h3>
+<p>Quality standards and skill evaluation.</p>
+</div>
+<div class="grid-item" data-detay="Management and strategy department uses skill matrices to determine which skills are needed to achieve organizational goals and support leadership development. These matrices evaluate the leadership, decision-making, and strategic thinking skills of the management team. Additionally, the skills needed to achieve strategic goals are identified, and gaps in skills between employees are detected to start appropriate development activities." onclick="openModal(this)">
+<h3>Management and Strategy</h3>
+<p>Organizational development and skill pool management
+</div>
+</div>
+</section>
+<section class="content-section">
+    <h2 class="section-title">Examples</h2>
+    <div class="grid-section">
+        <div class="grid-item" data-title="Görsel 1" data-detay="../images/c1.PNG" onclick="openImageModal(this)">
+          <img src="../images/c1.PNG" alt="Örnek 1" style="width: 100%; border-radius: 0px;">
+        </div>
+        <div class="grid-item" data-title="Görsel 2" data-detay="../images/c2.PNG" onclick="openImageModal(this)">
+          <img src="../images/c2.PNG" alt="Örnek 2" style="width: 100%; border-radius: 0px;">
+        </div>
+  
+      </div>
+    </section>
+    
+    <div class="modal" id="imageModal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background-color:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:9999;">
+      <div class="modal-content" style="background:#fff; padding:20px; border-radius:0px; max-width:90%; max-height:90%; overflow:auto; position:fixed;">
+        <span class="close" onclick="closeImageModal()" style="position:absolute; top:10px; right:15px; font-size:24px; cursor:pointer;">&times;</span>
+        <h2 id="imageModalTitle" style="margin-bottom:1rem;"></h2>
+        <img id="imageModalContent" src="" alt="Detay Görseli" style="width:100%; max-height:70vh; object-fit:contain; border-radius:10px;">
+      </div>
+    </div>
+    <script>
+        function openImageModal(el) {
+          const modal = document.getElementById('imageModal');
+          const modalTitle = document.getElementById('imageModalTitle');
+          const modalImg = document.getElementById('imageModalContent');
+        
+          modal.style.display = 'flex';
+          modalTitle.textContent = el.getAttribute('data-title');
+          modalImg.src = el.getAttribute('data-detay');
+        }
+        
+        function closeImageModal() {
+          document.getElementById('imageModal').style.display = 'none';
+        }
+        </script>  
+      </main>
+      <div class="modal" id="sectorModal">
+      <div class="modal-content">
+      <span class="close" onclick="closeModal()">×</span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalText"></p>
+      </div>
+      </div>
+      <script src="../script.js"></script></body>
+      </html> 

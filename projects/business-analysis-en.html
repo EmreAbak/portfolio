@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <script src="../lang-switch.js" defer></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Analysis - EMRE ABAK</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../projects/project.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 60, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+        }
+
+        /* Adjust main content to account for fixed nav */
+        body {
+            padding-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0.5rem;
+            }
+
+            .nav-links {
+                gap: 0.5rem;
+            }
+
+            .nav-link {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            body {
+                padding-top: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-container">
+        <div class="nav-links">
+            <a href="../index.html" class="nav-link">Home Page</a>
+            <a href="ai-software.html" class="nav-link">AI and Software</a>
+            <a href="data-analysis.html" class="nav-link">Data Analysis</a>
+            <a href="time-study.html" class="nav-link">Time Study</a>
+            <a href="work-analysis.html" class="nav-link">Business Analysis</a>
+            <a href="demand-forecast.html" class="nav-link">Demand Forecast</a>
+            <a href="dashboard.html" class="nav-link">Dashboard</a>
+            <a href="business-analysis.html" class="nav-link active">Business Development</a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="header-content">
+            <h1>Business Analysis</h1>
+            <a href="../index.html" class="home-button">
+                <i class="fas fa-home"></i> Home Page
+            </a>
+        </div>
+    </header>
+
+    <main class="project-content">
+        <section class="project-section">
+            <h2>General Overview</h2>
+            <p>Business Analysis Studies examine the processes, workflows and organizational structures of businesses in detail and offer solutions to increase efficiency and optimize costs.</p>
+        </section>
+
+        <section class="project-section">
+            <h2>Application Purpose</h2>
+            <ul>
+                <li>Optimization of business processes</li>
+                <li>Increase in organizational efficiency</li>
+                <li>Standardization of workflows</li>
+                <li>Improvement of resource utilization</li>
+                <li>Detection and resolution of process bottlenecks</li>
+            </ul>
+        </section>
+
+        <section class="project-section">
+            <h2>Application Process</h2>
+            <ul>
+                <li>Current situation analysis</li>
+                <li>Mapping of business processes</li>
+                <li>Detection of bottlenecks and opportunities</li>
+                <li>Development of improvement recommendations</li>
+                <li>Preparation of application plan</li>
+                <li>Tracking and reporting of results</li>
+            </ul>
+        </section>
+
+        <section class="project-section">
+            <h2>Results and Contributions</h2>
+            <ul>
+                <li>Increase in process efficiency</li>
+                <li>Decrease in operational costs</li>
+                <li>Standardized business processes</li>
+                <li>Improved resource utilization</li>
+                <li>Increased employee efficiency</li>
+            </ul>
+        </section>
+
+        <section class="project-section">
+            <h2>Applicable Sectors</h2>
+            <div class="grid-section">
+                <div class="grid-item">
+                    <h3>Production</h3>
+                    <p>Production processes and workflow optimization</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Service</h3>
+                    <p>Service processes and customer experience analysis</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Logistics</h3>
+                    <p>Supply chain and warehouse operation analysis</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Banking</h3>
+                    <p>Financial processes and operation analysis</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Retail</h3>
+                    <p>Store operations and sales process analysis</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Health</h3>
+                    <p>Hospital processes and patient flow analysis</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2>Benefited Departments</h2>
+            <div class="grid-section">
+                <div class="grid-item">
+                    <h3>Operation</h3>
+                    <p>Process optimization and efficiency increase</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Human Resources</h3>
+                    <p>Job definitions and organizational structure</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Quality</h3>
+                    <p>Process standardization and quality control</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Finance</h3>
+                    <p>Cost optimization and budget planning</p>
+                </div>
+                <div class="grid-item">
+                    <h3>Management</h3>
+                    <p>Strategic planning and organizational development</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="note">
+            <p>Note: The data in the studies conducted cannot be shared due to confidentiality. For more detailed information on methodology and results, please contact me.</p>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.project-section');
+            sections.forEach(section => section.classList.add('fade-in'));
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+    <script src="../lang-switch.js" defer></script>
+
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Artificial Intelligence and Software Studies - EMRE ABAK</title>
+<link href="../style.css" rel="stylesheet"/>
+<link href="project.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<style>
+        .project-header {
+            text-align: center;
+            padding: 5rem 2rem 3rem;
+            background: linear-gradient(135deg, #1a1a3c 0%, #0a192f 100%);
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-section:nth-child(2) { animation-delay: 0.2s; }
+        .content-section:nth-child(3) { animation-delay: 0.4s; }
+        .content-section:nth-child(4) { animation-delay: 0.6s; }
+        .content-section:nth-child(5) { animation-delay: 0.8s; }
+
+        .section-title {
+            color: #1a1a3c;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #1a1a3c;
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .bullet-list li::before {
+            content: "•";
+            color: #1a1a3c;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .grid-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .grid-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .grid-item h3 {
+            color: #1a1a3c;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .grid-item p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .note {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-left: 4px solid #1a1a3c;
+            margin-top: 2rem;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            margin-top: 1rem;
+        }
+
+        .home-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 1rem;
+            }
+
+            .grid-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 60, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background: rgba(255, 255, 255, 0.2);
+            font-weight: bold;
+        }
+
+        /* Adjust main content to account for fixed nav */
+        body {
+            padding-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0.5rem;
+            }
+
+            .nav-links {
+                gap: 0.5rem;
+            }
+
+            .nav-link {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            body {
+                padding-top: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="nav-container">
+<div class="nav-links">
+<a class="nav-link" href="../index.html">Home Page</a>
+<a class="nav-link" href="time-study.html">Time Study Studies</a>
+<a class="nav-link" href="skill-matrix.html">Employee Special Skill Matrix Forms</a>
+<a class="nav-link" href="visual-management.html">Visual Management Studies</a>
+<a class="nav-link" href="lean-production.html">Lean Production Studies</a>
+<a class="nav-link" href="demand-forecast.html">Demand Forecast Analysis</a>
+<a class="nav-link active" href="ai-software.html">Artificial Intelligence and Software Studies</a>
+<a class="nav-link" href="data-analysis.html">Data Analysis Studies</a>
+<a class="nav-link" href="dashboard.html">Dashboard Studies</a>
+<a class="nav-link" href="work-analysis.html">Work Analysis Studies</a>
+</div>
+</nav>
+<header class="project-header">
+<h1>Artificial Intelligence and Software Studies</h1>
+</header>
+<main>
+<section class="content-section">
+<h2 class="section-title">General Overview</h2>
+<p>Artificial intelligence and software studies are development activities carried out to simplify, automate, and improve processes using digital tools. These studies provide effective solutions to reduce operational load, support data-driven decision-making processes, and accelerate internal information flow. By effectively using ready-made systems and developing process-specific solutions, manual workload is reduced, error rates are lowered, and processes become more sustainable.</p>
+</section>
+<section class="content-section">
+<h2 class="section-title">Application Purpose</h2>
+<ul class="bullet-list">
+<li>To make processes faster, more regular, and measurable</li>
+<li>To automate repetitive tasks and save time and resources</li>
+<li>To support decision-making processes by presenting data in a simple and meaningful way</li>
+<li>To make processes traceable, reportable, and standardized</li>
+</ul>
+</section>
+<section class="content-section">
+<h2 class="section-title">Application Process</h2>
+<ul class="bullet-list">
+<li>A solution model is developed by analyzing the needs of the process.</li>
+<li>Data sources are determined and converted into an analyzable structure.</li>
+<li>Digital panels are created using ready-made platforms (Excel, Power BI, Google Sheets, etc.).</li>
+<li>Automated calculations, basic forecasting structures, and visual reporting tools are developed.</li>
+<li>The outputs are shared regularly with the relevant units and used in decision-making processes.</li>
+</ul>
+</section>
+<section class="content-section">
+<h2 class="section-title">Results and Contributions</h2>
+<ul class="bullet-list">
+<li>Automation and productivity increase in processes</li>
+<li>Decision-making processes become AI-supported</li>
+<li>Repetitive tasks are automated and error rates decrease</li>
+<li>Data processing and analysis processes speed up</li>
+<li>Digital transformation goals are achieved</li>
+</ul>
+</section>
+<section class="content-section">
+<h2 class="section-title">Applicable Sectors</h2>
+<div class="grid-section">
+<div class="grid-item" data-detay="In production facilities, AI and software development are used to optimize production lines, implement automated quality control systems, and improve resource management. Machine learning algorithms predict breakdowns in production lines, reducing breakdown times. Additionally, AI-based applications manage stock levels, material flow, and production plans automatically, thereby increasing the efficiency of facilities." onclick="openModal(this)">
+<h3>Production Facilities</h3>
+<p>Process automation and data analysis applications in industrial organizations.</p>
+</div>
+<div class="grid-item" data-detay="In the textile and apparel sector, AI is used to improve production processes, speed up design processes, and optimize supply chains. AI-based applications predict demand, develop production plans, and offer creative options in design, while minimizing human errors in the quality control process. Additionally, AI-based analyses track stock levels, providing improvements in inventory management." onclick="openModal(this)">
+<h3>Textile and Apparel</h3>
+<p>Production tracking and digitalization of planning processes.</p>
+</div>
+<div class="grid-item" data-detay="In the logistics and storage sector, AI enables efficient processes such as routing, inventory management, and demand forecasting. AI-based applications optimize logistics flows, reduce transportation costs, improve warehouse utilization, and shorten delivery times. Additionally, by tracking stock levels in real time, AI prevents stock shortages and excess stock problems." onclick="openModal(this)">
+<h3>Logistics and Storage</h3>
+<p>Automation of stock and shipping processes.</p>
+</div>
+<div class="grid-item" data-detay="In the service sector, AI is used to improve customer experience, speed up service processes, and strengthen decision support systems. Chatbots and virtual assistants provide immediate responses to customer requests, while AI algorithms analyze customer behavior to personalize services. Additionally, AI automates processes and improves workflow efficiency in service processes." onclick="openModal(this)">
+<h3>Service Sector</h3>
+<p>Process optimization in office organizations.</p>
+</div>
+<div class="grid-item" data-detay="Technology companies are leaders in software development and AI studies. AI and software development play a critical role in quickly responding to customer needs, developing new technologies, and improving process efficiency. AI-based applications enable companies to innovate in data analytics, machine learning, and deep learning areas. Additionally, technology companies use AI-based tools such as automated testing and continuous integration to speed up software development processes." onclick="openModal(this)">
+<h3>Technology Companies</h3>
+<p>Development of AI and software solutions.</p>
+</div>
+<div class="grid-item" data-detay="In the e-commerce sector, AI and software development are used to personalize customer experiences, increase sales, and optimize inventory management. AI-based recommendation systems analyze customer behavior to offer personalized offers and increase conversion rates. Additionally, AI optimizes inventory management, predicts demand, and manages stock levels more accurately." onclick="openModal(this)">
+<h3>E-Commerce</h3>
+<p>Online sales and customer service automation.</p>
+</div>
+<div class="grid-item" data-detay="In the consulting and education sectors, AI is used to develop data analytics, process improvement, and customer-focused solutions. AI-based applications provide personalized learning paths in education, while consulting companies also offer data-driven solutions for process improvement. Additionally, AI automates education processes, enabling more efficient work for educators." onclick="openModal(this)">
+<h3>Consulting and Education</h3>
+<p>Digital transformation of corporate processes.</p>
+</div>
+</div>
+</section>
+<section class="content-section">
+<h2 class="section-title">Benefited Departments</h2>  
+<div class="grid-section">
+<div class="grid-item" data-detay="Production and planning departments benefit from AI and software development activities to optimize production processes and create more accurate production plans. AI-based applications analyze production efficiency, predict production capacity, and automatically determine material requirements. This way, bottlenecks in production lines are prevented and resources are used more efficiently." onclick="openModal(this)">
+<h3>Production and Planning</h3>
+<p>Process optimization and efficiency tracking.</p>
+</div>
+<div class="grid-item" data-detay="Human resources departments improve hiring processes, increase employee satisfaction, and customize training processes with AI and software development. AI-based applications analyze candidates, quickly identify the most suitable ones, and continuously track employee performance and development through AI tools that evaluate performance and recommend training programs." onclick="openModal(this)">
+<h3>Human Resources</h3>
+<p>Personnel management and digitalization of administrative tasks.</p>
+</div>
+<div class="grid-item" data-detay="Sales and marketing departments analyze customer behavior using AI-based applications, create targeted campaigns, and make more accurate sales forecasts. AI-based systems create personalized marketing strategies, optimize social media and digital marketing activities, and track customer interactions. Additionally, AI tracks sales team performance and provides improvement suggestions." onclick="openModal(this)">
+<h3>Sales and Marketing</h3>
+<p>Customer relationships and campaign management.</p>
+</div>
+<div class="grid-item" data-detay="Quality and process departments use AI and software development tools to improve quality control systems and process improvements. AI analyzes production processes, detects error rates, and automates quality control processes. Additionally, AI-based applications track process efficiency, allowing continuous improvement through data-driven decisions." onclick="openModal(this)">
+<h3>Quality and Process</h3>
+<p>Quality control and process improvement activities.</p>
+</div>
+<div class="grid-item" data-detay="Stock and logistics departments use AI and software development activities to optimize inventory management, improve routing systems, and make the supply chain more efficient. AI-based applications predict demand, manage stock levels correctly, track material flow, and eliminate inefficiencies in logistics processes. Additionally, AI reduces errors in inventory and minimizes time losses in logistics processes." onclick="openModal(this)">
+<h3>Stock and Logistics</h3>
+<p>Inventory management and shipping planning.</p>
+</div>
+<div class="grid-item" data-detay="Financial and reporting departments analyze financial data with AI and software development, accelerate budgeting processes, and make reporting systems more efficient. AI-based systems analyze costs, predict income-expense relationships, and automate financial reports. Additionally, AI performs risk analyses, enabling more accurate financial decisions." onclick="openModal(this)">
+<h3>Finance and Reporting</h3>
+<p>Intelligent and financial analysis processes.</p>  
+</div>
+</div>
+</section>
+<section class="content-section">
+    <h2 class="section-title">Example</h2>
+    <div class="grid-section">
+        <div class="grid-item" data-title="Görsel 1" data-detay="../images/a1.PNG" onclick="openImageModal(this)">
+          <img src="../images/a1.PNG" alt="Örnek 1" style="width: 100%; border-radius: 0px;">
+        </div>
+        <div class="grid-item" data-title="Görsel 2" data-detay="../images/a2.PNG" onclick="openImageModal(this)">
+          <img src="../images/a2.PNG" alt="Örnek 2" style="width: 100%; border-radius: 0px;">
+        </div>
+        <div class="grid-item" data-title="Görsel 3" data-detay="../images/a3.PNG" onclick="openImageModal(this)">
+          <img src="../images/a3.PNG" alt="Örnek 3" style="width: 100%; border-radius: 0px;">
+        </div>
+        <div class="grid-item" data-title="Görsel 4" data-detay="../images/a4.PNG" onclick="openImageModal(this)">
+          <img src="../images/a4.PNG" alt="Örnek 4" style="width: 100%; border-radius: 0px;">
+        </div>
+        <div class="grid-item" data-title="Görsel 5" data-detay="../images/a5.PNG" onclick="openImageModal(this)">
+          <img src="../images/a5.PNG" alt="Örnek 5" style="width: 100%; border-radius: 0px;">
+        </div>
+        <div class="grid-item" data-title="Görsel 6" data-detay="../images/a6.PNG" onclick="openImageModal(this)">
+            <img src="../images/a6.PNG" alt="Örnek 6" style="width: 100%; border-radius: 0px;">
+          </div>
+          <div class="grid-item" data-title="Görsel 7" data-detay="../images/a7.PNG" onclick="openImageModal(this)">
+            <img src="../images/a7.PNG" alt="Örnek 7" style="width: 100%; border-radius: 0px;">
+          </div>
+          <div class="grid-item" data-title="Görsel 7" data-detay="../images/a8.PNG" onclick="openImageModal(this)">
+            <img src="../images/a8.PNG" alt="Örnek 7" style="width: 100%; border-radius: 0px;">
+          </div>
+          <div class="grid-item" data-title="Görsel 7" data-detay="../images/a9.PNG" onclick="openImageModal(this)">
+            <img src="../images/a9.PNG" alt="Örnek 7" style="width: 100%; border-radius: 0px;">
+          </div>
+      </div>
+    </section>
+    
+    <div class="modal" id="imageModal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background-color:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:9999;">
+      <div class="modal-content" style="background:#fff; padding:20px; border-radius:0px; max-width:90%; max-height:90%; overflow:auto; position:fixed;">
+        <span class="close" onclick="closeImageModal()" style="position:absolute; top:10px; right:15px; font-size:24px; cursor:pointer;">&times;</span>
+        <h2 id="imageModalTitle" style="margin-bottom:1rem;"></h2>
+        <img id="imageModalContent" src="" alt="Detay Görseli" style="width:100%; max-height:70vh; object-fit:contain; border-radius:10px;">
+      </div>
+    </div>
+    <script>
+        function openImageModal(el) {
+          const modal = document.getElementById('imageModal');
+          const modalTitle = document.getElementById('imageModalTitle');
+          const modalImg = document.getElementById('imageModalContent');
+        
+          modal.style.display = 'flex';
+          modalTitle.textContent = el.getAttribute('data-title');
+          modalImg.src = el.getAttribute('data-detay');
+        }
+        
+        function closeImageModal() {
+          document.getElementById('imageModal').style.display = 'none';
+        }
+        </script>  
+      </main>
+      <div class="modal" id="sectorModal">
+      <div class="modal-content">
+      <span class="close" onclick="closeModal()">×</span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalText"></p>
+      </div>
+      </div>
+      <script src="../script.js"></script></body>
+      </html> 
