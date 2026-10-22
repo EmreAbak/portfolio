@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 
   // ---- kayarak gelen öğeler
-  const rv=document.querySelectorAll('.point,.card,.result,.methods,.map,.step h2,.step .lead,.yerlesim-panel,.bars,.shot,.flow .col,.kanit,.tablo-kutu');
+  const rv=document.querySelectorAll('.halka-kutu,.akis-kutu,.yigin-kutu,.oz,.alinti,.matris-kutu,.cizgi-kutu,.kadro-kutu,.sohbet-kutu,.huni-kutu,.pb-kutu,.pareto-kutu,.oncesonra,.deger,.terim,.point,.card,.result,.methods,.map,.step h2,.step .lead,.yerlesim-panel,.bars,.shot,.flow .col,.kanit,.tablo-kutu');
   if(!az){ rv.forEach((e,i)=>{e.classList.add('rv'); e.style.transitionDelay=((i%4)*90)+'ms'});
     const ob=new IntersectionObserver(en=>en.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');ob.unobserve(x.target)}}),{threshold:.15});
     rv.forEach(e=>ob.observe(e)); }
